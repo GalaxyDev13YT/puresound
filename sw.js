@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = "puresound-audio-v1";
+const CACHE_NAME = "puresound-audio-v1";
 let cachingEnabled = false;
 
 self.addEventListener("install", (event) => {
@@ -30,14 +30,19 @@ self.addEventListener("fetch", (event) => {
   if (!cachingEnabled || request.method !== "GET") return;
 
   const url = new URL(request.url);
-  const isDriveMedia =
-    url.hostname === "www.googleapis.com" &&
-    url.pathname.startsWith("/drive/v3/files/") &&
-    url.searchParams.get("alt") === "media";
+  
+  // Don't cache Google Drive API streams - let them pass through
+  if (url.hostname === "www.googleapis.com" && url.pathname.startsWith("/drive/v3/files/")) {
+    return; // Skip caching for these
+  }
 
-  if (!isDriveMedia) return;
+  // Only cache thumbnail and view requests from drive.google.com
+  const isDriveThumb = url.hostname === "drive.google.com" && url.pathname.includes("thumbnail");
+  const isDriveView = url.hostname === "drive.google.com" && url.searchParams.get("export") === "view";
 
-  event.respondWith(cacheFirst(request));
+  if (isDriveThumb || isDriveView) {
+    event.respondWith(cacheFirst(request));
+  }
 });
 
 async function cacheFirst(request) {
