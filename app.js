@@ -1,4 +1,4 @@
-﻿const DRIVE = {
+const DRIVE = {
   apiKey: "AIzaSyCTbkxG_W9T1uKaXK8f-FFBzngZrQ0YJ2Q",
   rootFolderId: "1eBXiNU5vMlK67JELspL6_QCVQBDSwDJ2",
 };
@@ -154,6 +154,8 @@ const state = {
   currentAlbumId: null,
   currentTrackIndex: -1,
   currentTrackId: null,
+  currentStreamIndex: 0,
+  currentStreamUrls: [],
   filteredTracks: [],
   filteredAlbums: [],
   searchQuery: "",
@@ -427,6 +429,7 @@ function addLocalFiles(fileList) {
     }
 
     const trackInfo = parseTrackInfo(file.name, album.artist);
+    const streamUrl = URL.createObjectURL(file);
     const track = {
       id: `local-${albumId}-${file.name}-${file.lastModified}`,
       name: file.name,
@@ -439,7 +442,8 @@ function addLocalFiles(fileList) {
       coverUrl: album.coverUrl,
       coverFallbacks: [],
       index: 0,
-      streamUrl: URL.createObjectURL(file),
+      streamUrl,
+      streamUrls: [streamUrl],
       isLocal: true,
     };
 
@@ -586,6 +590,10 @@ function isAudioFile(file) {
   if (file.mimeType && file.mimeType.startsWith("audio/")) {
     return true;
   }
+  const name = file.name ? file.name.toLowerCase() : "";
+  return AUDIO_EXTENSIONS.some((ext) => name.endsWith(ext));
+}
+
 function resolveShortcut(file) {
   if (!file || file.mimeType !== "application/vnd.google-apps.shortcut") {
     return file;
@@ -599,9 +607,6 @@ function resolveShortcut(file) {
     shortcutId: file.id,
     isShortcut: true,
   };
-}
-  const name = file.name ? file.name.toLowerCase() : "";
-  return AUDIO_EXTENSIONS.some((ext) => name.endsWith(ext));
 }
 
 function stripExtension(name) {
@@ -697,6 +702,37 @@ function formatBytes(bytes) {
 
 function buildStreamUrl(fileId) {
   return `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${DRIVE.apiKey}&supportsAllDrives=true&acknowledgeAbuse=true`;
+}
+
+function buildDownloadUrl(fileId) {
+  return `https://drive.google.com/uc?export=download&id=${fileId}`;
+}
+
+function buildOpenUrl(fileId) {
+  return `https://drive.google.com/uc?export=open&id=${fileId}`;
+}
+
+function buildStreamCandidates(fileId) {
+  const urls = [buildStreamUrl(fileId), buildOpenUrl(fileId), buildDownloadUrl(fileId)];
+  return Array.from(new Set(urls));
+}
+
+function getNextStreamUrl() {
+  if (!Array.isArray(state.currentStreamUrls)) return null;
+  if (state.currentStreamIndex >= state.currentStreamUrls.length - 1) return null;
+  state.currentStreamIndex += 1;
+  return state.currentStreamUrls[state.currentStreamIndex];
+}
+
+function setAudioSource(url) {
+  const isApiStream = url.includes("www.googleapis.com/drive/v3/files/");
+  if (isApiStream) {
+    dom.audio.crossOrigin = "anonymous";
+  } else {
+    dom.audio.removeAttribute("crossorigin");
+  }
+  dom.audio.src = url;
+  dom.audio.load();
 }
 
 function buildCoverThumbUrl(fileId) {
@@ -1172,6 +1208,7 @@ async function loadTracksForAlbum(album, { silent = false } = {}) {
     const audioFiles = resolvedFiles.filter(isAudioFile).sort((a, b) => a.name.localeCompare(b.name));
     const tracks = audioFiles.map((file, index) => {
       const info = parseTrackInfo(file.name, album.artist);
+      const streamUrls = buildStreamCandidates(file.id);
       return {
         id: file.id,
         name: file.name,
@@ -1184,7 +1221,8 @@ async function loadTracksForAlbum(album, { silent = false } = {}) {
         coverUrl: album.coverUrl || "",
         coverFallbacks: album.coverFallbacks || [],
         index,
-        streamUrl: buildStreamUrl(file.id),
+        streamUrl: streamUrls[0],
+        streamUrls,
       };
     });
 
@@ -1314,8 +1352,9 @@ function loadTrack(track, autoplay) {
   state.currentAlbumId = track.albumId;
   state.currentTrackIndex = track.index;
   state.currentTrackId = track.id;
-  dom.audio.src = track.streamUrl;
-  dom.audio.load();
+  state.currentStreamUrls = Array.isArray(track.streamUrls) && track.streamUrls.length ? track.streamUrls : [track.streamUrl];
+  state.currentStreamIndex = 0;
+  setAudioSource(state.currentStreamUrls[0]);
   renderPlayer(track);
   renderAlbums();
   renderTracks();
@@ -1597,14 +1636,27 @@ function wireEvents() {
   dom.audio.addEventListener("timeupdate", syncSeekBar);
   dom.audio.addEventListener("loadedmetadata", syncSeekBar);
   dom.audio.addEventListener("loadedmetadata", () => preloadNextTrack());
-  dom.audio.addEventListener("error", () => {
+    dom.audio.addEventListener("error", () => {
     const err = dom.audio.error;
     const code = err && err.code ? ` (${err.code})` : "";
+    const nextUrl = getNextStreamUrl();
+    if (nextUrl) {
+      const wasPlaying = !dom.audio.paused;
+      const track = getCurrentTracks().find((item) => item.id === state.currentTrackId);
+      if (track) {
+        track.streamUrl = nextUrl;
+      }
+      setStatus(`Retrying audio with a backup link (${state.currentStreamIndex + 1}/${state.currentStreamUrls.length})...`);
+      setAudioSource(nextUrl);
+      if (wasPlaying) {
+        dom.audio.play().catch(() => {});
+      }
+      return;
+    }
     const track = getCurrentTracks().find((item) => item.id === state.currentTrackId);
     const trackLabel = track ? ` (${track.title})` : "";
     setStatus(`Audio failed to load${code}${trackLabel}. Make sure the files are public, not shortcuts, and your API key referrer matches this site.`);
-  });
-  dom.audio.addEventListener("ended", nextTrack);
+  });  dom.audio.addEventListener("ended", nextTrack);
   dom.audio.addEventListener("play", () => updatePlayButton(true));
   dom.audio.addEventListener("pause", () => updatePlayButton(false));
 }
@@ -1673,79 +1725,3 @@ async function init() {
   }
 }
 init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
