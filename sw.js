@@ -26,26 +26,39 @@ self.addEventListener("message", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
+
   const url = new URL(event.request.url);
   
-  // Never intercept Google Drive API requests
-  if (url.hostname.includes("googleapis.com") || url.hostname.includes("drive.google.com")) {
-    return;
+  // Only cache Google Drive API audio streams
+  const isDriveStream = url.hostname === "www.googleapis.com" && 
+                        url.pathname.startsWith("/drive/v3/files/") && 
+                        url.searchParams.get("alt") === "media";
+
+  if (isDriveStream && cachingEnabled) {
+    event.respondWith(cacheFirstWithFallback(event.request));
   }
-  
-  // Normal caching for other resources
-  if (!cachingEnabled || event.request.method !== "GET") return;
-  event.respondWith(cacheFirst(event.request));
 });
 
-async function cacheFirst(request) {
-  const cache = await caches.open(CACHE_NAME);
-  const cached = await cache.match(request);
-  if (cached) return cached;
+async function cacheFirstWithFallback(request) {
+  try {
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(request);
+    
+    if (cached) {
+      return cached;
+    }
 
-  const response = await fetch(request);
-  if (response && response.ok) {
-    cache.put(request, response.clone());
+    const response = await fetch(request);
+    
+    if (response.ok || response.status === 206) {
+      // Cache successful responses and partial content
+      cache.put(request, response.clone());
+    }
+    
+    return response;
+  } catch (error) {
+    // If cache fails, just fetch directly
+    return fetch(request);
   }
-  return response;
 }
