@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>puresound - web player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googleapis.com" />
+    <link rel="preconnect" href="https://drive.google.com" />
+    <link rel="dns-prefetch" href="https://www.googleapis.com" />
+    <link rel="dns-prefetch" href="https://drive.google.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Urbanist:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient">
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <div class="orb orb-three"></div>
+    </div>
+    <header class="topbar">
+      <div class="brand">
+        <p class="eyebrow">puresound library</p>
+        <h1>puresound</h1>
+      </div>
+      <div class="topbar-actions">
+        <button class="tab-button active" id="libraryTab" type="button">Library</button>
+        <button class="tab-button" id="settingsTab" type="button">Settings</button>
+      </div>
+      <div class="topbar-stats">
+        <div class="stat">
+          <span class="stat-label">Albums Loaded</span>
+          <span class="stat-value" id="albumCount">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Tracks Loaded</span>
+          <span class="stat-value" id="trackCount">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Active Users</span>
+          <span class="stat-value" id="activeUsers">1</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel albums-panel" id="albumsPanel">
+        <div class="panel-header">
+          <h2>Albums</h2>
+          <button class="ghost" id="reloadBtn" type="button">Reload</button>
+        </div>
+        <div class="album-list" id="albumList"></div>
+      </aside>
+
+      <section class="panel tracks-panel" id="tracksPanel">
+        <div class="panel-header">
+          <div>
+            <h2 id="albumTitle">Welcome</h2>
+            <p id="albumMeta" class="meta">Pick an album on the left to load its tracks.</p>
+          </div>
+        </div>
+
+        <div class="search-row">
+          <input
+            id="librarySearch"
+            type="search"
+            placeholder="Search songs, artists, albums"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="track-list" id="trackList"></div>
+      </section>
+
+      <section class="panel settings-panel" id="settingsPanel">
+        <div class="panel-header">
+          <div>
+            <h2>Settings</h2>
+            <p class="meta">Customize themes, caching, and local uploads.</p>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <div class="settings-card">
+            <h3>Themes</h3>
+            <p class="meta">Choose a look for puresound.</p>
+            <div class="theme-grid" id="themeGrid"></div>
+          </div>
+
+          <div class="settings-card">
+            <h3>Offline Cache</h3>
+            <p class="meta">Cache tracks for faster replay on this device.</p>
+            <label class="toggle">
+              <input id="cacheToggle" type="checkbox" />
+              Enable audio caching
+            </label>
+            <div class="cache-row">
+              <span class="meta">Cached tracks:</span>
+              <span class="cache-value" id="cacheCount">0</span>
+            </div>
+            <button class="ghost" id="clearCacheBtn" type="button">Clear cached audio</button>
+          </div>
+
+          <div class="settings-card">
+            <h3>Local Uploads</h3>
+            <p class="meta">Add MP3, AAC, FLAC, or WAV folders from your device.</p>
+            <input
+              id="localUpload"
+              type="file"
+              webkitdirectory
+              multiple
+              accept=".mp3,.aac,.flac,.wav,.m4a,.ogg,.opus,audio/*"
+            />
+            <div class="cache-row">
+              <span class="meta">Local tracks loaded:</span>
+              <span class="cache-value" id="localCount">0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="status" id="status">Ready to connect.</div>
+
+    <footer class="player" id="player">
+      <div class="now">
+        <div class="art" id="art">
+          <img id="artImage" class="art-image hidden" alt="Album cover" />
+          <span class="art-initials" id="artInitials">PS</span>
+        </div>
+        <div>
+          <p class="now-title" id="nowTitle">Nothing queued</p>
+          <p class="now-sub" id="nowSub">Pick an album to begin</p>
+        </div>
+      </div>
+
+            <div class="controls">
+        <button class="icon shuffle-btn" id="shuffleBtn" type="button" aria-label="Shuffle" aria-pressed="false">
+          <svg class="shuffle-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M16 3h5v5h-2V6.41l-3.29 3.3-1.42-1.42L17.59 5H16V3zM3 6h4.59l4.7 4.7-1.42 1.42L6.59 8H3V6zm18 10v5h-5v-2h1.59l-3.3-3.29 1.42-1.42 3.29 3.3V16h2zM3 16h4.59l10.3-10.29 1.42 1.42L8.01 18H3v-2z"></path>
+          </svg>
+        </button>
+        <button class="icon" id="prevBtn" type="button" aria-label="Previous">&#9664;&#9664;</button>
+        <button class="icon primary play-toggle" id="playBtn" type="button" aria-label="Play">
+          <span class="play-glyph" aria-hidden="true"></span>
+        </button>
+        <button class="icon" id="nextBtn" type="button" aria-label="Next">&#9654;&#9654;</button>
+      </div>
+
+      <div class="progress">
+        <span class="time" id="currentTime">0:00</span>
+        <input id="seekBar" type="range" min="0" max="100" value="0" />
+        <span class="time" id="duration">0:00</span>
+      </div>
+    </footer>
+
+    <div class="loading-overlay" id="loadingOverlay" aria-hidden="true">
+      <div class="loading-card">
+        <div class="visualizer" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <p id="loadingText">Loading...</p>
+      </div>
+    </div>
+    <div class="setup" id="setup">
+      <div class="setup-card">
+        <h3>Connect Your Drive API Key</h3>
+        <p>
+          This player reads your shared Drive folder using the Google Drive API.
+          Add an API key in <code>app.js</code> to enable live loading.
+        </p>
+        <ol>
+          <li>Create an API key in Google Cloud Console.</li>
+          <li>Enable the Google Drive API for that project.</li>
+          <li>Paste the key into <code>DRIVE.apiKey</code>.</li>
+        </ol>
+        <p class="meta">
+          The Drive folder must be shared publicly or to anyone with the link.
+        </p>
+      </div>
+    </div>
+
+    <audio id="audio"></audio>
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
