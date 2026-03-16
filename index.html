@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
@@ -170,13 +170,13 @@
         <button class="icon" id="nextBtn" type="button" aria-label="Next">&#9654;&#9654;</button>
         <button class="icon repeat-btn" id="repeatBtn" type="button" aria-label="Repeat off" aria-pressed="false">
           <svg class="repeat-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M17 17H7v3l-4-4 4-4v3h8a2 2 0 0 0 0-4H6.41l1.3 1.29-1.42 1.42L2.59 8l3.7-3.71 1.42 1.42L6.41 7H15a4 4 0 0 1 0 8h-8v2h10v-3l4 4-4 4v-3z"></path>
+            <path d="M7 7h10.17l-2.58-2.59L16 3l5 5-5 5-1.41-1.41L17.17 9H7a2 2 0 1 0 0 4h2v2H7a4 4 0 1 1 0-8zm10 2h2a4 4 0 1 1 0 8H8.83l2.58 2.59L10 21l-5-5 5-5 1.41 1.41L8.83 15H19a2 2 0 1 0 0-4h-2V9z"></path>
           </svg>
           <span class="repeat-one" id="repeatOneBadge" aria-hidden="true" hidden>1</span>
         </button>
         <button class="icon download-btn" id="downloadBtn" type="button" aria-label="Download current track" disabled>
           <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 20h14v-2H5v2zm7-18-5 5h3v6h4V7h3l-5-5z"></path>
+            <path d="M11 3h2v9.17l2.59-2.58L17 11l-5 5-5-5 1.41-1.41L11 12.17V3zm-7 14h16v4H4v-4z"></path>
           </svg>
         </button>
       </div>
@@ -188,7 +188,12 @@
       </div>
 
       <div class="volume">
-        <span class="volume-icon" aria-hidden="true">&#128266;</span>
+        <svg class="volume-icon" id="volumeIcon" viewBox="0 0 24 24" aria-hidden="true" data-level="medium">
+          <path class="speaker-body" d="M4 9v6h4.5l5.5 4V5L8.5 9H4z"></path>
+          <path class="wave-low" d="M16.2 9.6a3.45 3.45 0 0 1 0 4.8"></path>
+          <path class="wave-high" d="M18.8 7.2a6.9 6.9 0 0 1 0 9.6"></path>
+          <path class="mute-mark" d="M16.5 8.5l4 4m0-4-4 4"></path>
+        </svg>
         <input id="volumeSlider" type="range" min="0" max="200" value="100" />
         <span class="volume-value" id="volumeValue">100%</span>
       </div>
@@ -228,6 +233,7 @@
     <script src="app.js"></script>
   </body>
 </html>
+
 
 
 
