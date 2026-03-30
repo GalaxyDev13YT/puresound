@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TCV1ZPKZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-9TCV1ZPKZ9');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Puresound - Web Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googleapis.com" />
+    <link rel="preconnect" href="https://drive.google.com" />
+    <link rel="dns-prefetch" href="https://www.googleapis.com" />
+    <link rel="dns-prefetch" href="https://drive.google.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="liquid-scene" aria-hidden="true">
+      <div class="scene-grid"></div>
+      <div class="scene-aurora scene-aurora-one"></div>
+      <div class="scene-aurora scene-aurora-two"></div>
+      <div class="scene-aurora scene-aurora-three"></div>
+      <div class="scene-lens scene-lens-large"></div>
+      <div class="scene-lens scene-lens-small"></div>
+      <div class="scene-noise"></div>
+    </div>
+
+    <div class="app-shell">
+      <header class="topbar liquid-panel" data-liquid>
+        <div class="brand-cluster">
+          <div class="brand-mark" aria-hidden="true">
+            <span></span>
+          </div>
+          <div class="brand-copy">
+            <p class="eyebrow">dynamic liquid glass drive player</p>
+            <h1>puresound.</h1>
+          </div>
+        </div>
+
+        <div class="topbar-command liquid-panel liquid-panel-inset" data-liquid>
+          <div class="view-switch" role="tablist" aria-label="View switcher">
+            <button class="tab-button active" id="libraryTab" type="button" aria-pressed="true">Library</button>
+            <button class="tab-button" id="settingsTab" type="button" aria-pressed="false">Settings</button>
+          </div>
+
+          <label class="search-shell" for="librarySearch">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10.5 4a6.5 6.5 0 1 1 0 13a6.5 6.5 0 0 1 0-13zm0 2a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9zm8.7 10.8L22 19.6L19.6 22l-2.8-2.8l2.4-2.4z"></path>
+            </svg>
+            <input
+              id="librarySearch"
+              type="search"
+              placeholder="Search songs, artists, albums, singles"
+              autocomplete="off"
+            />
+          </label>
+
+          <button class="ghost" id="reloadBtn" type="button">Refresh Library</button>
+        </div>
+
+        <div class="topbar-stats">
+          <div class="stat-chip liquid-panel liquid-panel-inset" data-liquid>
+            <span class="stat-label">Releases</span>
+            <span class="stat-value" id="albumCount">0</span>
+          </div>
+          <div class="stat-chip liquid-panel liquid-panel-inset" data-liquid>
+            <span class="stat-label">Tracks</span>
+            <span class="stat-value" id="trackCount">0</span>
+          </div>
+          <div class="stat-chip liquid-panel liquid-panel-inset" data-liquid>
+            <span class="stat-label">Active Users</span>
+            <span class="stat-value" id="activeUsers">1</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="library-panel" id="libraryPanel">
+          <div class="library-stack">
+            <section class="library-hero liquid-panel" data-liquid>
+              <div class="hero-copy">
+                <p class="eyebrow">a new front end for your drive library</p>
+                <h2 id="libraryTitle">Open the grid. Enter the release.</h2>
+                <p class="meta" id="libraryMeta">
+                  Albums and root-level singles live in one library. Open any card to step into the fullscreen release view,
+                  then click a track to start playback.
+                </p>
+              </div>
+
+              <div class="hero-metrics">
+                <div class="hero-note liquid-panel liquid-panel-inset" data-liquid>
+                  <span class="hero-note-label">Grid</span>
+                  <p>Four-up cover wall with single badges, full-cover cards, and one-click release entry.</p>
+                </div>
+                <div class="hero-note liquid-panel liquid-panel-inset" data-liquid>
+                  <span class="hero-note-label">Singles</span>
+                  <p>Root-level audio files are treated as one-track releases and labeled clearly in the library.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="library-frame liquid-panel" data-liquid>
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">release wall</p>
+                  <h3>Albums and Singles</h3>
+                </div>
+                <p class="meta">Click a card to open its fullscreen track view. Playback starts only after a track click.</p>
+              </div>
+              <div class="library-grid" id="albumList"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="settings-panel" id="settingsPanel">
+          <div class="settings-stack">
+            <section class="settings-hero liquid-panel" data-liquid>
+              <div>
+                <p class="eyebrow">control room</p>
+                <h2>Player Settings</h2>
+                <p class="meta">Themes, caching, local libraries, interface scale, and pinned notes all live here.</p>
+              </div>
+              <div class="settings-build liquid-panel liquid-panel-inset" data-liquid>
+                <span class="stat-label">Build</span>
+                <span class="stat-value" id="versionCounter">3.0.0</span>
+              </div>
+            </section>
+
+            <div class="settings-grid">
+              <section class="settings-card settings-card-wide liquid-panel" data-liquid>
+                <div class="settings-card-head">
+                  <div>
+                    <p class="eyebrow">visual style</p>
+                    <h3>Themes</h3>
+                  </div>
+                  <p class="meta">Switch the glass palette without reloading the player.</p>
+                </div>
+                <div class="theme-grid" id="themeGrid"></div>
+              </section>
+
+              <section class="settings-card liquid-panel" data-liquid>
+                <div class="settings-card-head">
+                  <div>
+                    <p class="eyebrow">performance</p>
+                    <h3>Playback Cache</h3>
+                  </div>
+                  <p class="meta">Keep recent audio closer to the device for faster repeat plays.</p>
+                </div>
+                <label class="toggle liquid-panel liquid-panel-inset" data-liquid>
+                  <span>Enable audio caching</span>
+                  <input id="cacheToggle" type="checkbox" />
+                </label>
+                <div class="settings-row">
+                  <span class="meta">Cached tracks</span>
+                  <span class="cache-value" id="cacheCount">0</span>
+                </div>
+                <button class="ghost" id="clearCacheBtn" type="button">Clear Cached Audio</button>
+              </section>
+
+              <section class="settings-card liquid-panel" data-liquid>
+                <div class="settings-card-head">
+                  <div>
+                    <p class="eyebrow">local library</p>
+                    <h3>Device Uploads</h3>
+                  </div>
+                  <p class="meta">Add MP3, AAC, FLAC, WAV, M4A, OGG, or Opus files from folders on this device.</p>
+                </div>
+                <label class="upload-drop liquid-panel liquid-panel-inset" data-liquid>
+                  <span>Choose folders</span>
+                  <small>Audio folders only</small>
+                  <input
+                    id="localUpload"
+                    type="file"
+                    webkitdirectory
+                    multiple
+                    accept=".mp3,.aac,.flac,.wav,.m4a,.ogg,.opus,audio/*"
+                  />
+                </label>
+                <div class="settings-row">
+                  <span class="meta">Local tracks</span>
+                  <span class="cache-value" id="localCount">0</span>
+                </div>
+              </section>
+
+              <section class="settings-card liquid-panel" data-liquid>
+                <div class="settings-card-head">
+                  <div>
+                    <p class="eyebrow">density</p>
+                    <h3>UI Scale</h3>
+                  </div>
+                  <p class="meta">Tune the interface footprint without touching browser zoom.</p>
+                </div>
+                <div class="scale-switch liquid-panel liquid-panel-inset" id="uiScaleSwitch" data-liquid>
+                  <button class="scale-option active" type="button" data-scale="compact">Compact</button>
+                  <button class="scale-option" type="button" data-scale="normal">Normal</button>
+                  <button class="scale-option" type="button" data-scale="large">Large</button>
+                </div>
+                <div class="settings-row">
+                  <span class="meta">Current scale</span>
+                  <span class="cache-value" id="uiScaleValue">Normal</span>
+                </div>
+              </section>
+
+              <section class="settings-card settings-card-wide liquid-panel" data-liquid>
+                <div class="settings-card-head">
+                  <div>
+                    <p class="eyebrow">pinned notes</p>
+                    <h3>Paste Pad</h3>
+                  </div>
+                  <p class="meta">Keep local copy, reminders, or playlist text inside the app.</p>
+                </div>
+                <textarea
+                  class="settings-notes"
+                  id="settingsNotes"
+                  placeholder="Paste text here. It stays on this device."
+                ></textarea>
+              </section>
+            </div>
+
+            <div class="settings-footer liquid-panel" data-liquid>
+              <p>&copy; 2026 Puresound</p>
+              <p>
+                Licensed under the Apache License 2.0. This software is provided on an "AS IS" basis without warranties
+                or conditions of any kind.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-panel" id="detailPanel" aria-hidden="true">
+          <div class="detail-backdrop"></div>
+          <div class="detail-shell">
+            <div class="detail-toolbar">
+              <button class="ghost detail-close" id="closeDetailBtn" type="button">Back to Library</button>
+              <button class="ghost" id="downloadAlbumBtn" type="button" disabled>Download Release</button>
+            </div>
+
+            <div class="detail-banner liquid-panel" id="detailBanner" data-liquid>
+              <img id="detailBannerImage" class="detail-banner-image hidden" alt="Release cover" />
+              <div class="detail-banner-fallback" id="detailBannerFallback">PS</div>
+              <div class="detail-banner-sheen"></div>
+              <div class="detail-banner-overlay"></div>
+              <div class="detail-copy">
+                <span class="detail-type" id="detailType">Album</span>
+                <h2 id="albumTitle">Open a release</h2>
+                <p class="meta" id="albumMeta">Select a card from the library to view its tracks.</p>
+                <div class="detail-stats" id="detailStats">Search songs, artists, albums, and singles from the top search bar.</div>
+              </div>
+            </div>
+
+            <div class="detail-track-shell liquid-panel" data-liquid>
+              <div class="section-heading section-heading-tight">
+                <div>
+                  <p class="eyebrow">track stack</p>
+                  <h3>Tracks</h3>
+                </div>
+                <p class="meta">Click a track to play. Use the footer dock for queue controls.</p>
+              </div>
+              <div class="track-list" id="trackList"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="status liquid-panel" id="status">Ready to connect.</div>
+    </div>
+
+    <footer class="player liquid-panel" id="player" data-liquid>
+      <div class="player-now">
+        <div class="art liquid-panel liquid-panel-inset" id="art" data-liquid>
+          <img id="artImage" class="art-image hidden" alt="Album cover" />
+          <span class="art-initials" id="artInitials">PS</span>
+        </div>
+        <div class="now-copy">
+          <p class="now-label">Now Playing</p>
+          <p class="now-title" id="nowTitle">Nothing queued</p>
+          <p class="now-sub" id="nowSub">Pick a track to begin</p>
+        </div>
+      </div>
+
+      <div class="player-center">
+        <div class="controls">
+          <button class="icon shuffle-btn" id="shuffleBtn" type="button" aria-label="Shuffle" aria-pressed="false">
+            <svg class="shuffle-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 3h5v5h-2V6.41l-3.29 3.3-1.42-1.42L17.59 5H16V3zM3 6h4.59l4.7 4.7-1.42 1.42L6.59 8H3V6zm18 10v5h-5v-2h1.59l-3.3-3.29 1.42-1.42 3.29 3.3V16h2zM3 16h4.59l10.3-10.29 1.42 1.42L8.01 18H3v-2z"></path>
+            </svg>
+          </button>
+          <button class="icon" id="prevBtn" type="button" aria-label="Previous">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 5h2v14H6V5zm11.5 1.2v11.6L9.8 12l7.7-5.8z"></path>
+            </svg>
+          </button>
+          <button class="icon primary play-toggle" id="playBtn" type="button" aria-label="Play">
+            <span class="play-glyph" aria-hidden="true"></span>
+          </button>
+          <button class="icon" id="nextBtn" type="button" aria-label="Next">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 5h2v14h-2V5zM6.5 6.2L14.2 12l-7.7 5.8V6.2z"></path>
+            </svg>
+          </button>
+          <button class="icon repeat-btn" id="repeatBtn" type="button" aria-label="Repeat off" aria-pressed="false">
+            <svg class="repeat-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 7h10.17l-2.58-2.59L16 3l5 5-5 5-1.41-1.41L17.17 9H7a2 2 0 1 0 0 4h2v2H7a4 4 0 1 1 0-8zm10 2h2a4 4 0 1 1 0 8H8.83l2.58 2.59L10 21l-5-5 5-5 1.41 1.41L8.83 15H19a2 2 0 1 0 0-4h-2V9z"></path>
+            </svg>
+            <span class="repeat-one" id="repeatOneBadge" aria-hidden="true" hidden>1</span>
+          </button>
+          <button class="icon download-btn" id="downloadBtn" type="button" aria-label="Download current track" disabled>
+            <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M11 3h2v9.17l2.59-2.58L17 11l-5 5-5-5 1.41-1.41L11 12.17V3zm-7 14h16v4H4v-4z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="progress">
+          <span class="time" id="currentTime">0:00</span>
+          <input id="seekBar" type="range" min="0" max="100" value="0" />
+          <span class="time" id="duration">0:00</span>
+        </div>
+      </div>
+
+      <div class="player-volume liquid-panel liquid-panel-inset" data-liquid>
+        <div class="volume">
+          <svg class="volume-icon" id="volumeIcon" viewBox="0 0 24 24" aria-hidden="true" data-level="medium">
+            <path class="speaker-body" d="M4 9v6h4.5l5.5 4V5L8.5 9H4z"></path>
+            <path class="wave-low" d="M16.2 9.6a3.45 3.45 0 0 1 0 4.8"></path>
+            <path class="wave-high" d="M18.8 7.2a6.9 6.9 0 0 1 0 9.6"></path>
+            <path class="mute-mark" d="M16.5 8.5l4 4m0-4-4 4"></path>
+          </svg>
+          <input id="volumeSlider" type="range" min="0" max="200" value="100" />
+          <span class="volume-value" id="volumeValue">100%</span>
+        </div>
+      </div>
+    </footer>
+
+    <div class="loading-overlay" id="loadingOverlay" aria-hidden="true">
+      <div class="loading-card liquid-panel" data-liquid>
+        <div class="visualizer" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <p id="loadingText">Loading...</p>
+      </div>
+    </div>
+
+    <div class="setup" id="setup">
+      <div class="setup-card liquid-panel" data-liquid>
+        <p class="eyebrow">drive access required</p>
+        <h3>Configure Drive Access</h3>
+        <p>
+          This player reads your shared Drive folder using the Google Drive API. Copy <code>config.example.js</code>
+          to <code>config.js</code> and add your key there for direct browser access.
+        </p>
+        <ol>
+          <li>Create an API key in Google Cloud Console.</li>
+          <li>Enable the Google Drive API for that project.</li>
+          <li>Paste the key into <code>config.js</code> and lock it to your site referrer.</li>
+        </ol>
+        <p class="meta">
+          Any key shipped to the browser can still be inspected. If you want real secrecy, move Drive requests behind a backend proxy.
+        </p>
+      </div>
+    </div>
+
+    <audio id="audio"></audio>
+    <script>window.PURESOUND_CONFIG = window.PURESOUND_CONFIG || {};</script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
