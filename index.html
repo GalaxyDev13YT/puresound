@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <title>Puresound - Web Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-ui-scale="normal">
+    <div class="scene" aria-hidden="true">
+      <div class="scene-grid"></div>
+      <div class="scene-orb orb-one"></div>
+      <div class="scene-orb orb-two"></div>
+      <div class="scene-orb orb-three"></div>
+      <div class="scene-lens lens-one"></div>
+      <div class="scene-lens lens-two"></div>
+      <div class="scene-noise"></div>
+    </div>
+
+    <div class="app-shell">
+      <aside class="sidebar glass" data-liquid>
+        <div class="brand-stack">
+          <div class="brand-orb" aria-hidden="true"></div>
+          <div>
+            <p class="eyebrow">Apple Liquid Glass Player</p>
+            <h1>puresound.</h1>
+          </div>
+        </div>
+
+        <nav class="nav-stack" aria-label="Primary">
+          <button id="libraryTab" class="nav-button active" type="button">Library</button>
+          <button id="settingsTab" class="nav-button" type="button">Settings</button>
+        </nav>
+
+        <section class="hero-card glass glass-subtle" data-liquid>
+          <p class="eyebrow">Guide</p>
+          <h2 id="libraryTitle">Browse, open, then play.</h2>
+          <p id="libraryMeta" class="muted guide-copy">Open an album or single, then click a track. Search filters releases, artists, and songs instantly.</p>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat-card glass glass-subtle" data-liquid>
+            <span class="stat-label">Releases</span>
+            <span class="stat-value" id="albumCount">0</span>
+          </article>
+          <article class="stat-card glass glass-subtle" data-liquid>
+            <span class="stat-label">Tracks</span>
+            <span class="stat-value" id="trackCount">0</span>
+          </article>
+          <article class="stat-card glass glass-subtle" data-liquid>
+            <span class="stat-label">Active Users</span>
+            <span class="stat-value" id="activeUsers">1</span>
+          </article>
+        </section>
+      </aside>
+
+      <main class="main-shell">
+        <header class="topbar glass" data-liquid>
+          <div class="topbar-copy">
+            <p class="eyebrow">Spotify-Style Library</p>
+            <h2>Albums, singles, search, queue</h2>
+          </div>
+
+          <label class="search-shell glass glass-subtle" data-liquid>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 1 0 13a6.5 6.5 0 0 1 0-13Zm0 2a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9Zm8.7 10.8L22 19.6L19.6 22l-2.8-2.8 2.4-2.4Z"/></svg>
+            <input id="librarySearch" type="search" placeholder="Search tracks, artists, albums, singles" autocomplete="off" />
+          </label>
+
+          <div class="topbar-pills">
+            <div class="top-pill glass glass-subtle" data-liquid>
+              <span class="pill-label">Songs Loaded</span>
+              <span class="pill-value" id="topTrackCount">0</span>
+            </div>
+            <div class="top-pill glass glass-subtle" data-liquid>
+              <span class="pill-label">Releases</span>
+              <span class="pill-value" id="topReleaseCount">0</span>
+            </div>
+            <button id="reloadBtn" class="action-button" type="button">Refresh</button>
+          </div>
+        </header>
+
+        <section id="libraryPanel" class="view view-library">
+          <section class="feature-strip glass" data-liquid>
+            <div>
+              <p class="eyebrow">Streaming Layout</p>
+              <h2>Your library wall</h2>
+              <p class="muted">Root-level audio files are treated as singles. Album folders become releases with their own fullscreen page and download action.</p>
+            </div>
+            <div class="feature-chips">
+              <span class="chip">4-column grid</span>
+              <span class="chip">Singles supported</span>
+              <span class="chip">Smart queue</span>
+            </div>
+          </section>
+
+          <section class="release-section glass" data-liquid>
+            <div class="section-header">
+              <div>
+                <p class="eyebrow">Library</p>
+                <h2>Browse Releases</h2>
+              </div>
+              <p class="muted small-copy">Click any card to open its page. Playback starts only when a track is clicked.</p>
+            </div>
+            <div id="albumList" class="release-grid"></div>
+            <div id="libraryEmpty" class="empty-state hidden">No releases match this search.</div>
+          </section>
+        </section>
+
+        <section id="settingsPanel" class="view view-settings hidden">
+          <div class="settings-grid">
+            <section class="settings-card glass" data-liquid>
+              <p class="eyebrow">Themes</p>
+              <h2>Glass Presets</h2>
+              <div id="themeGrid" class="theme-grid"></div>
+            </section>
+
+            <section class="settings-card glass" data-liquid>
+              <p class="eyebrow">Cache</p>
+              <h2>Speed</h2>
+              <label class="toggle-row glass glass-subtle" data-liquid>
+                <span>Enable metadata + media warm cache</span>
+                <input id="cacheToggle" type="checkbox" />
+              </label>
+              <div class="info-row"><span class="muted">Cached items</span><span id="cacheCount">0</span></div>
+              <button id="clearCacheBtn" class="action-button action-button-secondary" type="button">Clear Cache</button>
+            </section>
+
+            <section class="settings-card glass" data-liquid>
+              <p class="eyebrow">Local Files</p>
+              <h2>Upload Folders</h2>
+              <label class="upload-card glass glass-subtle" data-liquid>
+                <span>Choose folders</span>
+                <small>MP3, AAC, FLAC, WAV, M4A, OGG, Opus</small>
+                <input id="localUpload" type="file" webkitdirectory multiple accept=".mp3,.aac,.flac,.wav,.m4a,.ogg,.opus,audio/*,.jpg,.jpeg,.png,.webp" />
+              </label>
+              <div class="info-row"><span class="muted">Local tracks</span><span id="localCount">0</span></div>
+            </section>
+
+            <section class="settings-card glass" data-liquid>
+              <p class="eyebrow">Scale</p>
+              <h2>UI Scale</h2>
+              <div id="uiScaleSwitch" class="scale-switch glass glass-subtle" data-liquid>
+                <button class="scale-option" data-scale="compact" type="button">Compact</button>
+                <button class="scale-option active" data-scale="normal" type="button">Normal</button>
+                <button class="scale-option" data-scale="large" type="button">Large</button>
+              </div>
+              <div class="info-row"><span class="muted">Current scale</span><span id="uiScaleValue">Normal</span></div>
+            </section>
+
+            <section class="settings-card settings-card-wide glass" data-liquid>
+              <p class="eyebrow">Paste Pad</p>
+              <h2>Saved Notes</h2>
+              <textarea id="settingsNotes" class="notes" placeholder="Paste text here. It stays on this device."></textarea>
+            </section>
+
+            <section class="settings-card glass" data-liquid>
+              <p class="eyebrow">Build</p>
+              <h2>Version</h2>
+              <div id="versionCounter" class="version-pill glass glass-subtle" data-liquid>5.0.0</div>
+            </section>
+
+            <section class="settings-card glass" data-liquid>
+              <p class="eyebrow">Copyright</p>
+              <h2>Usage</h2>
+              <p class="muted small-copy">Puresound UI and client code © 2026. You are responsible for the music and artwork you stream through your own Drive library.</p>
+            </section>
+          </div>
+        </section>
+
+        <div id="status" class="status-bar glass">Ready.</div>
+      </main>
+    </div>
+
+    <section id="detailPanel" class="detail-overlay hidden" aria-hidden="true">
+      <div class="detail-scrim"></div>
+      <div class="detail-window glass" data-liquid>
+        <button id="closeDetailBtn" class="detail-close" type="button" aria-label="Close release">×</button>
+
+        <div class="detail-banner">
+          <img id="detailBannerImage" class="detail-banner-image hidden" alt="Release art" />
+          <div id="detailBannerFallback" class="detail-banner-fallback">PS</div>
+          <div class="detail-banner-gradient"></div>
+          <div class="detail-banner-copy">
+            <span id="detailType" class="detail-badge">Release</span>
+            <h2 id="albumTitle">Select a release</h2>
+            <p id="albumMeta" class="muted">Open a release from the grid to see its tracks.</p>
+            <p id="detailStats" class="muted small-copy">Click a track to start playback. Albums and singles can be downloaded.</p>
+            <div class="detail-actions">
+              <button id="downloadAlbumBtn" class="action-button action-button-secondary" type="button" disabled>Download Release</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-track-shell">
+          <div class="section-header section-header-tight">
+            <div>
+              <p class="eyebrow">Tracks</p>
+              <h2>Release Queue</h2>
+            </div>
+          </div>
+          <div id="trackList" class="track-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="player-dock glass" data-liquid>
+      <div class="now-playing glass glass-subtle" data-liquid>
+        <div id="art" class="art-frame">
+          <img id="artImage" class="hidden" alt="Current cover art" />
+          <span id="artInitials">PS</span>
+        </div>
+        <div class="now-copy">
+          <p class="eyebrow">Now Playing</p>
+          <h3 id="nowTitle">Nothing queued</h3>
+          <p id="nowSub" class="muted small-copy">Choose a track to begin</p>
+        </div>
+      </div>
+
+      <div class="transport-shell">
+        <div class="transport-buttons">
+          <button id="shuffleBtn" class="icon-button" type="button" aria-label="Shuffle">
+            <svg viewBox="0 0 24 24"><path d="M16 3h5v5h-2V6.41l-3.29 3.3-1.42-1.42L17.59 5H16V3Zm-13 3h4.59l4.7 4.7-1.42 1.42L6.59 8H3V6Zm18 10v5h-5v-2h1.59l-3.3-3.29 1.42-1.42 3.29 3.3V16h2ZM3 16h4.59l10.3-10.29 1.42 1.42L8.01 18H3v-2Z"/></svg>
+          </button>
+          <button id="prevBtn" class="icon-button" type="button" aria-label="Previous">
+            <svg viewBox="0 0 24 24"><path d="M6 5h2v14H6V5Zm11.5 1.2v11.6L9.8 12l7.7-5.8Z"/></svg>
+          </button>
+          <button id="playBtn" class="play-button" type="button" aria-label="Play or pause">
+            <span class="play-glyph"></span>
+          </button>
+          <button id="nextBtn" class="icon-button" type="button" aria-label="Next">
+            <svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2V5ZM6.5 6.2 14.2 12l-7.7 5.8V6.2Z"/></svg>
+          </button>
+          <button id="repeatBtn" class="icon-button" type="button" aria-label="Repeat">
+            <svg viewBox="0 0 24 24"><path d="M7 7h10.17l-2.58-2.59L16 3l5 5-5 5-1.41-1.41L17.17 9H7a2 2 0 1 0 0 4h2v2H7a4 4 0 1 1 0-8Zm10 2h2a4 4 0 1 1 0 8H8.83l2.58 2.59L10 21l-5-5 5-5 1.41 1.41L8.83 15H19a2 2 0 1 0 0-4h-2V9Z"/></svg>
+            <span id="repeatOneBadge" class="repeat-one" hidden>1</span>
+          </button>
+          <button id="downloadBtn" class="icon-button" type="button" aria-label="Download current track">
+            <svg viewBox="0 0 24 24"><path d="M11 3h2v9.17l2.59-2.58L17 11l-5 5-5-5 1.41-1.41L11 12.17V3Zm-7 14h16v4H4v-4Z"/></svg>
+          </button>
+        </div>
+
+        <div class="progress-shell">
+          <span id="currentTime">0:00</span>
+          <input id="seekBar" type="range" min="0" max="100" value="0" />
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+
+      <div class="tools-shell glass glass-subtle" data-liquid>
+        <div class="volume-shell">
+          <svg id="volumeIcon" class="volume-icon" viewBox="0 0 24 24" data-level="medium" aria-hidden="true">
+            <path class="speaker" d="M4 9v6h4.5l5.5 4V5L8.5 9H4z"></path>
+            <path class="wave-low" d="M16 9.4a3.7 3.7 0 0 1 0 5.2"></path>
+            <path class="wave-high" d="M18.8 6.8a7.6 7.6 0 0 1 0 10.4"></path>
+            <path class="mute-mark" d="M16.4 8.6l4 4m0-4-4 4"></path>
+          </svg>
+          <input id="volumeSlider" type="range" min="0" max="200" value="100" />
+          <span id="volumeValue">100%</span>
+        </div>
+      </div>
+    </footer>
+
+    <div id="loadingOverlay" class="loading-overlay hidden" aria-hidden="true">
+      <div class="loading-card glass" data-liquid>
+        <div class="loading-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <p id="loadingText">Loading library…</p>
+      </div>
+    </div>
+
+    <div id="setup" class="setup hidden">
+      <div class="setup-card glass" data-liquid>
+        <p class="eyebrow">Public Drive Proxy</p>
+        <h2>Library source is not configured</h2>
+        <p class="muted small-copy">Run the included PowerShell proxy. For public folders, no browser API key is needed.</p>
+      </div>
+    </div>
+
+    <audio id="audio" preload="metadata"></audio>
+    <script>window.PURESOUND_CONFIG = window.PURESOUND_CONFIG || {};</script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+
