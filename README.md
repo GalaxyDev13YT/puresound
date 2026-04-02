@@ -9,7 +9,7 @@
 | $$                                                                                      
 |__/                                                                                      
 ```                                                                                                                                                                                     
-the puresound libary is a huge libary of high quality music
+the puresound libary is a huge libary of pure lossless quality music
 
 [https://galaxydev13yt.github.io/puresound/](https://galaxydev13yt.github.io/puresound/)
 build: v1.6.0
