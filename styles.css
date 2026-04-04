@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg-0: #010204;
   --bg-1: #030612;
   --bg-2: #07122c;
@@ -2416,3 +2416,28 @@ body {
   align-self: stretch;
 }
 
+
+/* Sidebar lock + library paging overrides */
+.sidebar {
+  position: sticky;
+  top: 18px;
+  align-self: start;
+  max-height: calc(100vh - 36px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.library-pagination {
+  position: static;
+  margin: 22px 0 8px;
+  align-self: stretch;
+}
+
+@media (max-width: 980px) {
+  .sidebar {
+    position: static;
+    top: 0;
+    max-height: none;
+    overflow: visible;
+  }
+}
