@@ -37,18 +37,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-## GitHub Pages
-
-This project can run as a fully static site on GitHub Pages.
-
-1. Edit `config.js`
-2. Set your Google Drive browser API key in `directBrowser.apiKey`
-3. In Google Cloud, restrict that key to your GitHub Pages origin
-4. Push `index.html`, `styles.css`, `app.js`, `config.js`, and `sw.js`
-
-Example origin restriction:
-- `https://YOURNAME.github.io/*`
-- `https://YOURNAME.github.io/REPO/*`
-
-The local PowerShell proxy is still included, but it is optional for the GitHub Pages version.
