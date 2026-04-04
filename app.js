@@ -1,4 +1,4 @@
-﻿const APP_VERSION = "5.2.0";
+﻿const APP_VERSION = "2.2.1";
 const DEFAULT_TITLE = "Puresound \u2022 Web Player";
 const ROOT_FOLDER_ID = "1eBXiNU5vMlK67JELspL6_QCVQBDSwDJ2";
 const AUDIO_EXTENSIONS = [".mp3", ".m4a", ".wav", ".flac", ".ogg", ".aac", ".opus"];
