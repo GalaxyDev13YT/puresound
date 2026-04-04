@@ -1,7 +1,12 @@
-﻿{
-    "generatedAt":  "2026-04-02T20:41:11.4532793-05:00",
+{
+    "generatedAt":  "2026-04-04T04:26:32.8904020-05:00",
     "rootFolderId":  "1eBXiNU5vMlK67JELspL6_QCVQBDSwDJ2",
     "rootItems":  [
+                      {
+                          "id":  "1NbYxAMSBoI0En01tJ7ySiKY4y-YIP_Al",
+                          "name":  "Master of Puppets (Remastered) - Metallica",
+                          "mimeType":  "application/vnd.google-apps.folder"
+                      },
                       {
                           "id":  "1Ow0z4ydsLLK-yPpBW4BSualu_H4gja16",
                           "name":  "Dookie - Green Day",
@@ -164,6 +169,22 @@
                       }
                   ],
     "folderItems":  {
+                        "1NbYxAMSBoI0En01tJ7ySiKY4y-YIP_Al":  [
+                                                                  {
+                                                                      "id":  "1oMLt4aZLzdgY3J5374_8FqJT_P-9703Q",
+                                                                      "name":  "Master of Puppets (Remastered) - Metallica.m3u",
+                                                                      "mimeType":  "audio/x-mpegurl",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1oMLt4aZLzdgY3J5374_8FqJT_P-9703Q\u0026export=download",
+                                                                      "size":  "933"
+                                                                  },
+                                                                  {
+                                                                      "id":  "14AbMtxiLADlJyqEwRE4s4eZKt-ElZBqO",
+                                                                      "name":  "cover.jpg",
+                                                                      "mimeType":  "image/jpeg",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=14AbMtxiLADlJyqEwRE4s4eZKt-ElZBqO\u0026export=download",
+                                                                      "size":  "417168"
+                                                                  }
+                                                              ],
                         "1Ow0z4ydsLLK-yPpBW4BSualu_H4gja16":  [
                                                                   {
                                                                       "id":  "12PCAui1pYcTYiFJoJZ6t5zqdb9XO-hBc",
@@ -865,6 +886,13 @@
                                                                   }
                                                               ],
                         "1LSB8m2WuGAUNICceUYm7b3Lj_Uy9nBc-":  [
+                                                                  {
+                                                                      "id":  "1CL5oN5k41nM0BYrm-G6wdlrRR6F23vQ7",
+                                                                      "name":  "cover.jpg",
+                                                                      "mimeType":  "image/jpeg",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1CL5oN5k41nM0BYrm-G6wdlrRR6F23vQ7\u0026export=download",
+                                                                      "size":  "404051"
+                                                                  },
                                                                   {
                                                                       "id":  "1u6WvXecmquGisRLnkoKB8zqUbdLI24-I",
                                                                       "name":  "Cracker Island (Deluxe) - Gorillaz.m3u",
