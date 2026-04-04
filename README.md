@@ -24,6 +24,8 @@ build: v1.6.0
 
 -------------------------------------------------------------------------------------------
 
+##Copyright
+
 Copyright 2026 Puresound
 
 Licensed under the Apache License, Version 2.0 (the "License");
