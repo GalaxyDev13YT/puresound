@@ -1,15 +1,35 @@
 {
-    "generatedAt":  "2026-04-04T05:02:43.6548925-05:00",
+    "generatedAt":  "2026-04-04T05:16:49.6424065-05:00",
     "rootFolderId":  "1eBXiNU5vMlK67JELspL6_QCVQBDSwDJ2",
     "rootItems":  [
                       {
-                          "id":  "1pxGiX7Ri2On0m5EVWqz1UrostRyu3q82",
-                          "name":  "Master of Puppets (Remastered) - Metallica",
+                          "id":  "1xX6qpBLntNCNbRdjC8b4g_aX_G5ZNl67",
+                          "name":  "Tyler, The Creator - CHROMAKOPIA ",
+                          "mimeType":  "application/vnd.google-apps.folder"
+                      },
+                      {
+                          "id":  "1UpXaOWszgXgd-ns6xJ_N0iNb5eaHVxO7",
+                          "name":  "Tyler, The Creator - Flower Boy",
                           "mimeType":  "application/vnd.google-apps.folder"
                       },
                       {
                           "id":  "1Ow0z4ydsLLK-yPpBW4BSualu_H4gja16",
-                          "name":  "Dookie - Green Day",
+                          "name":  "Green Day - Dookie",
+                          "mimeType":  "application/vnd.google-apps.folder"
+                      },
+                      {
+                          "id":  "10bS0bFKkE-kURH1l8eFWNIk_7czZjeIn",
+                          "name":  "Tyler, The Creator - IGOR",
+                          "mimeType":  "application/vnd.google-apps.folder"
+                      },
+                      {
+                          "id":  "1O1UISKvwfhQe7Zi2WVkntgvGKzoSYY4P",
+                          "name":  "Metallica - Ride the Lightning (Remastered)",
+                          "mimeType":  "application/vnd.google-apps.folder"
+                      },
+                      {
+                          "id":  "1pxGiX7Ri2On0m5EVWqz1UrostRyu3q82",
+                          "name":  "Metallica - Master of Puppets (Remastered)",
                           "mimeType":  "application/vnd.google-apps.folder"
                       },
                       {
@@ -169,76 +189,232 @@
                       }
                   ],
     "folderItems":  {
-                        "1pxGiX7Ri2On0m5EVWqz1UrostRyu3q82":  [
+                        "1xX6qpBLntNCNbRdjC8b4g_aX_G5ZNl67":  [
                                                                   {
-                                                                      "id":  "1RegjRk0Nak5wOaTqV4YA6SgoX3O-Q2JX",
-                                                                      "name":  "08 - Metallica - Damage, Inc. (Remastered).flac",
+                                                                      "id":  "1IWo6-b_T9rUhJjx3MobxY5ZMNi7EN50M",
+                                                                      "name":  "14 - Tyler, The Creator - I Hope You Find Your Way Home.flac",
                                                                       "mimeType":  "audio/flac",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=1RegjRk0Nak5wOaTqV4YA6SgoX3O-Q2JX\u0026export=download",
-                                                                      "size":  "66657026"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1IWo6-b_T9rUhJjx3MobxY5ZMNi7EN50M\u0026export=download",
+                                                                      "size":  "49876192"
                                                                   },
                                                                   {
-                                                                      "id":  "1izE-KPiDKx5gDQ41Tquq8vR8qEthby45",
-                                                                      "name":  "Master of Puppets (Remastered) - Metallica.m3u",
+                                                                      "id":  "1V4vGTvZ9HVt5DjO3vx_GnUtdr6O2zxCT",
+                                                                      "name":  "13 - Tyler, The Creator - Balloon (feat. Doechii).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1V4vGTvZ9HVt5DjO3vx_GnUtdr6O2zxCT\u0026export=download",
+                                                                      "size":  "32401646"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1ktfiP4ABwVGlrsxkn6iAy1tvjqOQY8n0",
+                                                                      "name":  "CHROMAKOPIA - Tyler, The Creator.m3u",
                                                                       "mimeType":  "audio/x-mpegurl",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=1izE-KPiDKx5gDQ41Tquq8vR8qEthby45\u0026export=download",
-                                                                      "size":  "933"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1ktfiP4ABwVGlrsxkn6iAy1tvjqOQY8n0\u0026export=download",
+                                                                      "size":  "1861"
                                                                   },
                                                                   {
-                                                                      "id":  "1qSZYohc5A_DRYlIK1R_sZzuELjc9en-a",
-                                                                      "name":  "07 - Metallica - Orion (Remastered).flac",
+                                                                      "id":  "1oEdMgZExPL5CB7PHVVM3_Z-MXWwbFC3W",
+                                                                      "name":  "11 - Tyler, The Creator - Thought I Was Dead (feat. ScHoolboy Q \u0026 Santigold).flac",
                                                                       "mimeType":  "audio/flac",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=1qSZYohc5A_DRYlIK1R_sZzuELjc9en-a\u0026export=download",
-                                                                      "size":  "59305948"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1oEdMgZExPL5CB7PHVVM3_Z-MXWwbFC3W\u0026export=download",
+                                                                      "size":  "41778379"
                                                                   },
                                                                   {
-                                                                      "id":  "1pL20hLmLdwES45h3nP8LQBwkSa08CiYS",
-                                                                      "name":  "06 - Metallica - Leper Messiah (Remastered).flac",
+                                                                      "id":  "1DexiRWzuv_ocD6RBCi9wHkIh1emfWM-i",
+                                                                      "name":  "12 - Tyler, The Creator - Like Him (feat. Lola Young).flac",
                                                                       "mimeType":  "audio/flac",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=1pL20hLmLdwES45h3nP8LQBwkSa08CiYS\u0026export=download",
-                                                                      "size":  "74935641"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1DexiRWzuv_ocD6RBCi9wHkIh1emfWM-i\u0026export=download",
+                                                                      "size":  "53149767"
                                                                   },
                                                                   {
-                                                                      "id":  "1STcJmJPH2CqNsZkHjmq_8quI7siaXUow",
-                                                                      "name":  "05 - Metallica - Disposable Heroes (Remastered).flac",
+                                                                      "id":  "1CXNSNBv69qtUaKobK43i-MpfnarEqW7v",
+                                                                      "name":  "10 - Tyler, The Creator - Tomorrow.flac",
                                                                       "mimeType":  "audio/flac",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=1STcJmJPH2CqNsZkHjmq_8quI7siaXUow\u0026export=download",
-                                                                      "size":  "108626902"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1CXNSNBv69qtUaKobK43i-MpfnarEqW7v\u0026export=download",
+                                                                      "size":  "32442483"
                                                                   },
                                                                   {
-                                                                      "id":  "13d8zYaVzP_gBDLL4MPJeNT4AoF52BsWO",
-                                                                      "name":  "04 - Metallica - Welcome Home (Sanitarium) [Remastered].flac",
+                                                                      "id":  "1YqNhKzX_3eyPTiRfZOMvZkJm3nVuLyKB",
+                                                                      "name":  "09 - Tyler, The Creator - Take Your Mask Off (feat. Daniel Caesar \u0026 LaToiya Williams).flac",
                                                                       "mimeType":  "audio/flac",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=13d8zYaVzP_gBDLL4MPJeNT4AoF52BsWO\u0026export=download",
-                                                                      "size":  "46395022"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1YqNhKzX_3eyPTiRfZOMvZkJm3nVuLyKB\u0026export=download",
+                                                                      "size":  "49761901"
                                                                   },
                                                                   {
-                                                                      "id":  "1oEfb8U87u9Qt2ljOe1cCyuEA8P998x_r",
-                                                                      "name":  "03 - Metallica - The Thing That Should Not Be (Remastered).flac",
+                                                                      "id":  "1R42Uxkuv1J10D5Q0dH5j314htpfMzcZ6",
+                                                                      "name":  "07 - Tyler, The Creator - Judge Judy.flac",
                                                                       "mimeType":  "audio/flac",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=1oEfb8U87u9Qt2ljOe1cCyuEA8P998x_r\u0026export=download",
-                                                                      "size":  "83042616"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1R42Uxkuv1J10D5Q0dH5j314htpfMzcZ6\u0026export=download",
+                                                                      "size":  "53181046"
                                                                   },
                                                                   {
-                                                                      "id":  "1vewWN-E5sqr6bQHv6TAZlrSB64tIcOdF",
-                                                                      "name":  "02 - Metallica - Master of Puppets (Remastered).flac",
+                                                                      "id":  "1dL0Mos9tf42GYZnNGVBA0stEFkOg4Z6b",
+                                                                      "name":  "08 - Tyler, The Creator - Sticky (feat. GloRilla, Sexyy Red \u0026 Lil Wayne).flac",
                                                                       "mimeType":  "audio/flac",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=1vewWN-E5sqr6bQHv6TAZlrSB64tIcOdF\u0026export=download",
-                                                                      "size":  "107851870"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1dL0Mos9tf42GYZnNGVBA0stEFkOg4Z6b\u0026export=download",
+                                                                      "size":  "52049004"
                                                                   },
                                                                   {
-                                                                      "id":  "1iu4Pj8T7ohDyn3XNH-3u1AsrxpIY0Jj-",
-                                                                      "name":  "01 - Metallica - Battery (Remastered).flac",
+                                                                      "id":  "1bH_bDI3MqHGM3fwMY5qkiKJxjTp26x2s",
+                                                                      "name":  "05 - Tyler, The Creator - Hey Jane.flac",
                                                                       "mimeType":  "audio/flac",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=1iu4Pj8T7ohDyn3XNH-3u1AsrxpIY0Jj-\u0026export=download",
-                                                                      "size":  "38362712"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1bH_bDI3MqHGM3fwMY5qkiKJxjTp26x2s\u0026export=download",
+                                                                      "size":  "47194448"
                                                                   },
                                                                   {
-                                                                      "id":  "1ZrY1j5-QuQT1a2KRkEJLJT8KTYFxHx-e",
+                                                                      "id":  "1qepwdjWkHdYGeD_AN8Ynzx1bR7sn1SJd",
+                                                                      "name":  "06 - Tyler, The Creator - I Killed You.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1qepwdjWkHdYGeD_AN8Ynzx1bR7sn1SJd\u0026export=download",
+                                                                      "size":  "33283095"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1ZB01mGRswxfsxYbj1xip4hunVUKEWky2",
+                                                                      "name":  "04 - Tyler, The Creator - Darling, I (feat. Teezo Touchdown).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1ZB01mGRswxfsxYbj1xip4hunVUKEWky2\u0026export=download",
+                                                                      "size":  "52706729"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1Op-xOY8Evk5M8JlLIe1bsEO2fZvd6bYc",
+                                                                      "name":  "02 - Tyler, The Creator - Rah Tah Tah.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1Op-xOY8Evk5M8JlLIe1bsEO2fZvd6bYc\u0026export=download",
+                                                                      "size":  "34191761"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1vAdYY5B9Pae84Qqko6UtK_uI1e8Wg3r7",
+                                                                      "name":  "03 - Tyler, The Creator - Noid.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1vAdYY5B9Pae84Qqko6UtK_uI1e8Wg3r7\u0026export=download",
+                                                                      "size":  "56407446"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1sWlQCuR2EHmWDg42oPDXYgDf0Bxs-KLg",
+                                                                      "name":  "01 - Tyler, The Creator - St. Chroma (feat. Daniel Caesar).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1sWlQCuR2EHmWDg42oPDXYgDf0Bxs-KLg\u0026export=download",
+                                                                      "size":  "39913538"
+                                                                  },
+                                                                  {
+                                                                      "id":  "11wP1AqEOfwhH3BuenbUeCXNNVL5vxDWR",
                                                                       "name":  "cover.jpg",
                                                                       "mimeType":  "image/jpeg",
-                                                                      "webContentLink":  "https://drive.google.com/uc?id=1ZrY1j5-QuQT1a2KRkEJLJT8KTYFxHx-e\u0026export=download",
-                                                                      "size":  "417168"
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=11wP1AqEOfwhH3BuenbUeCXNNVL5vxDWR\u0026export=download",
+                                                                      "size":  "140695"
+                                                                  }
+                                                              ],
+                        "1UpXaOWszgXgd-ns6xJ_N0iNb5eaHVxO7":  [
+                                                                  {
+                                                                      "id":  "1Gt4BpCeCgEs137mqD_XJV80kNH1ECGHy",
+                                                                      "name":  "Flower Boy - Tyler, The Creator.m3u",
+                                                                      "mimeType":  "audio/x-mpegurl",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1Gt4BpCeCgEs137mqD_XJV80kNH1ECGHy\u0026export=download",
+                                                                      "size":  "1939"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1uYxNxDoOzNaaRithfTQYjc0Lah5iXRtC",
+                                                                      "name":  "13 - Tyler, The Creator - Glitter.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1uYxNxDoOzNaaRithfTQYjc0Lah5iXRtC\u0026export=download",
+                                                                      "size":  "24032360"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1jvGqXF732vga_H9KO1meVLhVTh5vOWAu",
+                                                                      "name":  "14 - Tyler, The Creator - Enjoy Right Now, Today.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1jvGqXF732vga_H9KO1meVLhVTh5vOWAu\u0026export=download",
+                                                                      "size":  "24698971"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1laUOeodcQi_HqlaWLm5Ae6oxkDIrGQ0b",
+                                                                      "name":  "08 - Tyler, The Creator - Boredom (feat. Rex Orange County \u0026 Anna of the North).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1laUOeodcQi_HqlaWLm5Ae6oxkDIrGQ0b\u0026export=download",
+                                                                      "size":  "34201155"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1s438gAMO32Jt37dQCfy6BQJGHkGJXZCs",
+                                                                      "name":  "12 - Tyler, The Creator - November.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1s438gAMO32Jt37dQCfy6BQJGHkGJXZCs\u0026export=download",
+                                                                      "size":  "26249788"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1zAGSnGiqDM3zTDRxw2awwgKxgK3Z8Xs_",
+                                                                      "name":  "11 - Tyler, The Creator - Droppin\u0027 Seeds (feat. Lil\u0027 Wayne).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1zAGSnGiqDM3zTDRxw2awwgKxgK3Z8Xs_\u0026export=download",
+                                                                      "size":  "6998173"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1Soxo9eI3Z2fxm8Yl0HEzPzTlUOMjRU8o",
+                                                                      "name":  "09 - Tyler, The Creator - I Ain\u0027t Got Time!.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1Soxo9eI3Z2fxm8Yl0HEzPzTlUOMjRU8o\u0026export=download",
+                                                                      "size":  "25194034"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1S3UtyXxbJF8rTVys0yb7bnyqmBj6kkGP",
+                                                                      "name":  "10 - Tyler, The Creator - 911 _ Mr. Lonely (feat. Frank Ocean \u0026 Steve Lacy).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1S3UtyXxbJF8rTVys0yb7bnyqmBj6kkGP\u0026export=download",
+                                                                      "size":  "29091875"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1huqBm6-jMzXepxGMxQDoTMndTEeMdcD0",
+                                                                      "name":  "03 - Tyler, The Creator - Sometimes....flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1huqBm6-jMzXepxGMxQDoTMndTEeMdcD0\u0026export=download",
+                                                                      "size":  "3869070"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1fcR4kGr7gZnYTqkWiEl8RQI3_WhAsYb8",
+                                                                      "name":  "07 - Tyler, The Creator - Garden Shed (feat. Estelle).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1fcR4kGr7gZnYTqkWiEl8RQI3_WhAsYb8\u0026export=download",
+                                                                      "size":  "22889458"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1LBtgQvAtcWaHXAOykSpZZp4WaAtTRC6K",
+                                                                      "name":  "06 - Tyler, The Creator - Pothole (feat. Jaden Smith).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1LBtgQvAtcWaHXAOykSpZZp4WaAtTRC6K\u0026export=download",
+                                                                      "size":  "26334377"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1QOtP-bbsKh55l5P0xHoV8XyNRAPEehYo",
+                                                                      "name":  "04 - Tyler, The Creator - See You Again (feat. Kali Uchis).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1QOtP-bbsKh55l5P0xHoV8XyNRAPEehYo\u0026export=download",
+                                                                      "size":  "21243417"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1QLhhXbQKX8g6ueiMV6AS4wo02qNOpLGb",
+                                                                      "name":  "05 - Tyler, The Creator - Who Dat Boy (feat. A$AP Rocky).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1QLhhXbQKX8g6ueiMV6AS4wo02qNOpLGb\u0026export=download",
+                                                                      "size":  "22084627"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1xpZS8Hoa80SMWpCly_p4UFyPJk0JNyDP",
+                                                                      "name":  "01 - Tyler, The Creator - Foreword (feat. Rex Orange County).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1xpZS8Hoa80SMWpCly_p4UFyPJk0JNyDP\u0026export=download",
+                                                                      "size":  "22892192"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1XBchwDLEHU3l0kJXek05jJw4gNaaDUWj",
+                                                                      "name":  "cover.jpg",
+                                                                      "mimeType":  "image/jpeg",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1XBchwDLEHU3l0kJXek05jJw4gNaaDUWj\u0026export=download",
+                                                                      "size":  "471384"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1E4A8C5os8xxkdQrVJnf4n4T604SXfOGu",
+                                                                      "name":  "02 - Tyler, The Creator - Where This Flower Blooms (feat. Frank Ocean).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1E4A8C5os8xxkdQrVJnf4n4T604SXfOGu\u0026export=download",
+                                                                      "size":  "19110004"
                                                                   }
                                                               ],
                         "1Ow0z4ydsLLK-yPpBW4BSualu_H4gja16":  [
@@ -360,6 +536,250 @@
                                                                       "mimeType":  "image/jpeg",
                                                                       "webContentLink":  "https://drive.google.com/uc?id=1Eq251ciQ70XV7SZLxisszkJxRA7ToPJW\u0026export=download",
                                                                       "size":  "478628"
+                                                                  }
+                                                              ],
+                        "10bS0bFKkE-kURH1l8eFWNIk_7czZjeIn":  [
+                                                                  {
+                                                                      "id":  "1mqb4fA50R2uJAqI17OQQFdlMD4QALefb",
+                                                                      "name":  "12 - Tyler, The Creator - ARE WE STILL FRIENDS_.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1mqb4fA50R2uJAqI17OQQFdlMD4QALefb\u0026export=download",
+                                                                      "size":  "52236467"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1WYC2CXe3gNQfLsdax3UZL4n-m7Q6jyxG",
+                                                                      "name":  "11 - Tyler, The Creator - I DON\u0027T LOVE YOU ANYMORE.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1WYC2CXe3gNQfLsdax3UZL4n-m7Q6jyxG\u0026export=download",
+                                                                      "size":  "29586972"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1gankDMtwmeCii3BsrVM3fDp_0Bna-k1F",
+                                                                      "name":  "IGOR - Tyler, The Creator.m3u",
+                                                                      "mimeType":  "audio/x-mpegurl",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1gankDMtwmeCii3BsrVM3fDp_0Bna-k1F\u0026export=download",
+                                                                      "size":  "1279"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1omF5AIpRAU0BennKlr7EGGQ56igVVPuJ",
+                                                                      "name":  "09 - Tyler, The Creator - WHAT\u0027S GOOD.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1omF5AIpRAU0BennKlr7EGGQ56igVVPuJ\u0026export=download",
+                                                                      "size":  "41656386"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1hIZxr1_tj_ZvyjFFct6f1DLeFJC7XrEb",
+                                                                      "name":  "10 - Tyler, The Creator - GONE, GONE _ THANK YOU.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1hIZxr1_tj_ZvyjFFct6f1DLeFJC7XrEb\u0026export=download",
+                                                                      "size":  "71742144"
+                                                                  },
+                                                                  {
+                                                                      "id":  "19dhkBcGPD1aIIdeOXU3UB0kxP22dtn5V",
+                                                                      "name":  "08 - Tyler, The Creator - PUPPET.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=19dhkBcGPD1aIIdeOXU3UB0kxP22dtn5V\u0026export=download",
+                                                                      "size":  "35894940"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1oUzRKCTtPUti6sfClajyVJS-MWwOIa1l",
+                                                                      "name":  "07 - Tyler, The Creator - A BOY IS A GUN_.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1oUzRKCTtPUti6sfClajyVJS-MWwOIa1l\u0026export=download",
+                                                                      "size":  "41722724"
+                                                                  },
+                                                                  {
+                                                                      "id":  "19xzEWZNKQYENcYlZlvBtFAUBeivvCz74",
+                                                                      "name":  "06 - Tyler, The Creator - NEW MAGIC WAND.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=19xzEWZNKQYENcYlZlvBtFAUBeivvCz74\u0026export=download",
+                                                                      "size":  "40600234"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1LDFgxVHSJ3i8HD6zK9Vb-bi_VAzkjxHK",
+                                                                      "name":  "05 - Tyler, The Creator - RUNNING OUT OF TIME.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1LDFgxVHSJ3i8HD6zK9Vb-bi_VAzkjxHK\u0026export=download",
+                                                                      "size":  "33125303"
+                                                                  },
+                                                                  {
+                                                                      "id":  "13OR5sHEXSvrHd_bEzfqOrHkFGOh9pNqR",
+                                                                      "name":  "02 - Tyler, The Creator - EARFQUAKE.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=13OR5sHEXSvrHd_bEzfqOrHkFGOh9pNqR\u0026export=download",
+                                                                      "size":  "38549290"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1AxyjOYFSsIYADF2aPLqi7L9ZwKzhtNqG",
+                                                                      "name":  "04 - Tyler, The Creator - EXACTLY WHAT YOU RUN FROM YOU END UP CHASING.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1AxyjOYFSsIYADF2aPLqi7L9ZwKzhtNqG\u0026export=download",
+                                                                      "size":  "2861112"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1aGERzIT0UHGLTDGmqdOgcvjOPQ4KeBiw",
+                                                                      "name":  "03 - Tyler, The Creator - I THINK.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1aGERzIT0UHGLTDGmqdOgcvjOPQ4KeBiw\u0026export=download",
+                                                                      "size":  "42928130"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1EtwKun5C0kE3hr70AI6LzHX7va-40kUO",
+                                                                      "name":  "cover.jpg",
+                                                                      "mimeType":  "image/jpeg",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1EtwKun5C0kE3hr70AI6LzHX7va-40kUO\u0026export=download",
+                                                                      "size":  "341408"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1b1SO9DtzVPecc5PhB-W_3qoci-IcYbWx",
+                                                                      "name":  "01 - Tyler, The Creator - IGOR\u0027S THEME.flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1b1SO9DtzVPecc5PhB-W_3qoci-IcYbWx\u0026export=download",
+                                                                      "size":  "39932096"
+                                                                  }
+                                                              ],
+                        "1O1UISKvwfhQe7Zi2WVkntgvGKzoSYY4P":  [
+                                                                  {
+                                                                      "id":  "17LJ2S2laZKljtQNc9wMi7c7MBmkWpY9J",
+                                                                      "name":  "Ride the Lightning (Remastered) - Metallica.m3u",
+                                                                      "mimeType":  "audio/x-mpegurl",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=17LJ2S2laZKljtQNc9wMi7c7MBmkWpY9J\u0026export=download",
+                                                                      "size":  "942"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1-dN5K5JQEPQAirEawN1rQt9CR40OHa7c",
+                                                                      "name":  "08 - Metallica - The Call of Ktulu (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1-dN5K5JQEPQAirEawN1rQt9CR40OHa7c\u0026export=download",
+                                                                      "size":  "204148050"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1PikZvsrCJy7QU5BTc2j--Dr86Hjwj29b",
+                                                                      "name":  "07 - Metallica - Creeping Death (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1PikZvsrCJy7QU5BTc2j--Dr86Hjwj29b\u0026export=download",
+                                                                      "size":  "157756151"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1WyjtBQ_vhQJ6ZEZaH5aSq5FlT5Xw3cjD",
+                                                                      "name":  "06 - Metallica - Escape (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1WyjtBQ_vhQJ6ZEZaH5aSq5FlT5Xw3cjD\u0026export=download",
+                                                                      "size":  "106095841"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1me2EJ34ZHmyT_oN_4ojLbrt7ZssbVAyx",
+                                                                      "name":  "04 - Metallica - Fade to Black (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1me2EJ34ZHmyT_oN_4ojLbrt7ZssbVAyx\u0026export=download",
+                                                                      "size":  "162396270"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1o8jXbNJok6Q3DMc3vdsP1eOivbWGVDIo",
+                                                                      "name":  "05 - Metallica - Trapped Under Ice (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1o8jXbNJok6Q3DMc3vdsP1eOivbWGVDIo\u0026export=download",
+                                                                      "size":  "98101484"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1MtTWFf_dHdZDJP-rIw8bfi7dNHk43oSs",
+                                                                      "name":  "03 - Metallica - For Whom the Bell Tolls (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1MtTWFf_dHdZDJP-rIw8bfi7dNHk43oSs\u0026export=download",
+                                                                      "size":  "120875357"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1RYJ9i5xg7bVMGDXO9ILnSTFInxfcuegY",
+                                                                      "name":  "02 - Metallica - Ride the Lightning (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1RYJ9i5xg7bVMGDXO9ILnSTFInxfcuegY\u0026export=download",
+                                                                      "size":  "156156464"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1S700X8iGJ4PQYWWDqLLOxrISUyh0Hvez",
+                                                                      "name":  "01 - Metallica - Fight Fire With Fire (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1S700X8iGJ4PQYWWDqLLOxrISUyh0Hvez\u0026export=download",
+                                                                      "size":  "112383043"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1q3L5zZgUqnhxd9yUgWdGhlXsL4Y3uM3j",
+                                                                      "name":  "cover.jpg",
+                                                                      "mimeType":  "image/jpeg",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1q3L5zZgUqnhxd9yUgWdGhlXsL4Y3uM3j\u0026export=download",
+                                                                      "size":  "322065"
+                                                                  }
+                                                              ],
+                        "1pxGiX7Ri2On0m5EVWqz1UrostRyu3q82":  [
+                                                                  {
+                                                                      "id":  "1RegjRk0Nak5wOaTqV4YA6SgoX3O-Q2JX",
+                                                                      "name":  "08 - Metallica - Damage, Inc. (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1RegjRk0Nak5wOaTqV4YA6SgoX3O-Q2JX\u0026export=download",
+                                                                      "size":  "66657026"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1izE-KPiDKx5gDQ41Tquq8vR8qEthby45",
+                                                                      "name":  "Master of Puppets (Remastered) - Metallica.m3u",
+                                                                      "mimeType":  "audio/x-mpegurl",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1izE-KPiDKx5gDQ41Tquq8vR8qEthby45\u0026export=download",
+                                                                      "size":  "933"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1qSZYohc5A_DRYlIK1R_sZzuELjc9en-a",
+                                                                      "name":  "07 - Metallica - Orion (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1qSZYohc5A_DRYlIK1R_sZzuELjc9en-a\u0026export=download",
+                                                                      "size":  "59305948"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1pL20hLmLdwES45h3nP8LQBwkSa08CiYS",
+                                                                      "name":  "06 - Metallica - Leper Messiah (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1pL20hLmLdwES45h3nP8LQBwkSa08CiYS\u0026export=download",
+                                                                      "size":  "74935641"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1STcJmJPH2CqNsZkHjmq_8quI7siaXUow",
+                                                                      "name":  "05 - Metallica - Disposable Heroes (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1STcJmJPH2CqNsZkHjmq_8quI7siaXUow\u0026export=download",
+                                                                      "size":  "108626902"
+                                                                  },
+                                                                  {
+                                                                      "id":  "13d8zYaVzP_gBDLL4MPJeNT4AoF52BsWO",
+                                                                      "name":  "04 - Metallica - Welcome Home (Sanitarium) [Remastered].flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=13d8zYaVzP_gBDLL4MPJeNT4AoF52BsWO\u0026export=download",
+                                                                      "size":  "46395022"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1oEfb8U87u9Qt2ljOe1cCyuEA8P998x_r",
+                                                                      "name":  "03 - Metallica - The Thing That Should Not Be (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1oEfb8U87u9Qt2ljOe1cCyuEA8P998x_r\u0026export=download",
+                                                                      "size":  "83042616"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1vewWN-E5sqr6bQHv6TAZlrSB64tIcOdF",
+                                                                      "name":  "02 - Metallica - Master of Puppets (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1vewWN-E5sqr6bQHv6TAZlrSB64tIcOdF\u0026export=download",
+                                                                      "size":  "107851870"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1iu4Pj8T7ohDyn3XNH-3u1AsrxpIY0Jj-",
+                                                                      "name":  "01 - Metallica - Battery (Remastered).flac",
+                                                                      "mimeType":  "audio/flac",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1iu4Pj8T7ohDyn3XNH-3u1AsrxpIY0Jj-\u0026export=download",
+                                                                      "size":  "38362712"
+                                                                  },
+                                                                  {
+                                                                      "id":  "1ZrY1j5-QuQT1a2KRkEJLJT8KTYFxHx-e",
+                                                                      "name":  "cover.jpg",
+                                                                      "mimeType":  "image/jpeg",
+                                                                      "webContentLink":  "https://drive.google.com/uc?id=1ZrY1j5-QuQT1a2KRkEJLJT8KTYFxHx-e\u0026export=download",
+                                                                      "size":  "417168"
                                                                   }
                                                               ],
                         "1YfgRXnWNOLSSmx28k7ohHPqmH-NNqP1h":  [
