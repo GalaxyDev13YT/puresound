@@ -462,10 +462,11 @@ function buildAlbumRelease(folder, children) {
   const fallbackArtist = parsed.artist || guessArtistFromTracks(tracks) || "Unknown artist";
   const coverItem = pickCoverItem(images, folderName);
   const coverUrl = coverItem ? buildCoverUrl(coverItem) : "";
+  const releaseType = tracks.length === 1 ? "single" : "album";
   const release = {
     id: `drive-release:${folder.driveId || folder.id}`,
     source: "drive",
-    type: "album",
+    type: releaseType,
     title: cleanupDisplayText(releaseTitle),
     artist: cleanupDisplayText(fallbackArtist),
     coverUrl,
