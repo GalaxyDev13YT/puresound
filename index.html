@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <link rel="icon" type="image/png" sizes="500x500" href="favicon.png" />
+        <meta name="description" content="Puresound is a sleek web music player for streaming albums, singles, playlists, and high-quality tracks from your library with search, profiles, and playlist sharing.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-ui-scale="normal">
+    <div class="scene" aria-hidden="true">
+      <div class="scene-grid"></div>
+      <div class="scene-orb orb-one"></div>
+      <div class="scene-orb orb-two"></div>
+      <div class="scene-orb orb-three"></div>
+      <div class="scene-noise"></div>
+    </div>
+
+    <div class="app-shell">
+      <aside class="sidebar glass">
+        <div class="sidebar-brand">
+          <img class="brand-logo" src="logo.png" alt="Puresound logo" />
+          <h1>puresound.</h1>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Primary">
+          <button id="libraryTab" class="nav-icon active" type="button" aria-label="Home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-9Zm4 0v9M12 5.5v13"/></svg>
+            <span class="nav-label">Home</span>
+          </button>
+          <button id="profileTab" class="nav-icon" type="button" aria-label="Profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8Zm-7 8a7 7 0 1 1 14 0"/></svg>
+            <span class="nav-label">Profile</span>
+          </button>
+          <button id="settingsTab" class="nav-icon" type="button" aria-label="Settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.8A3.2 3.2 0 1 1 12 15.2A3.2 3.2 0 0 1 12 8.8Zm8 3.2-1.7-.5a6.7 6.7 0 0 0-.6-1.5l1-1.5-1.8-1.8-1.5 1a6.7 6.7 0 0 0-1.5-.6L13.5 4h-3l-.5 1.7a6.7 6.7 0 0 0-1.5.6l-1.5-1-1.8 1.8 1 1.5a6.7 6.7 0 0 0-.6 1.5L4 12v3l1.7.5a6.7 6.7 0 0 0 .6 1.5l-1 1.5 1.8 1.8 1.5-1a6.7 6.7 0 0 0 1.5.6l.5 1.7h3l.5-1.7a6.7 6.7 0 0 0 1.5-.6l1.5 1 1.8-1.8-1-1.5a6.7 6.7 0 0 0 .6-1.5L20 15v-3Z"/></svg>
+            <span class="nav-label">Settings</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-stats">
+          <div class="sidebar-stat glass glass-subtle">
+            <strong id="albumCount">0</strong>
+            <span>Albums</span>
+          </div>
+          <div class="sidebar-stat glass glass-subtle">
+            <strong id="trackCount">0</strong>
+            <span>Tracks</span>
+          </div>
+          <div class="sidebar-stat glass glass-subtle">
+            <strong id="activeUsers">1</strong>
+            <span>Users</span>
+          </div>
+        </div>
+
+        <div class="utility-hidden" aria-hidden="true">
+          <span id="libraryTitle">Browse, open, then play.</span>
+          <span id="libraryMeta">Search tracks, artists, and releases.</span>
+        </div>
+      </aside>
+
+      <main class="main-shell">
+        <header class="topbar">
+          <label class="search-shell glass" aria-label="Search library">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 1 0 13a6.5 6.5 0 0 1 0-13Zm0 0v0Zm8.2 13.2 3 3"/></svg>
+            <input id="librarySearch" type="search" placeholder="Search songs, artists, albums, singles" autocomplete="off" />
+          </label>
+          <div class="topbar-account">
+            <p id="welcomeBanner" class="welcome-banner">Welcome, Guest</p>
+            <button id="authOpenBtn" class="auth-chip" type="button">Sign In</button>
+          </div>
+          <button id="reloadBtn" class="utility-hidden" type="button">Refresh</button>
+        </header>
+
+        <section id="libraryPanel" class="view view-library">
+          <section id="releaseGridView" class="release-grid-view">
+            <section class="home-summary glass">
+              <div>
+                <p class="eyebrow">Home</p>
+                <h2 id="homeWelcomeTitle">Welcome, Guest</h2>
+                <p id="homeWelcomeCopy" class="muted">Sign in to sync recent plays, playlists, and your profile.</p>
+              </div>
+              <div class="home-summary-actions">
+                <button id="homeAuthBtn" class="action-button" type="button">Continue</button>
+                <button id="homeNewPlaylistBtn" class="action-button action-button-secondary" type="button" disabled>Create Playlist</button>
+              </div>
+            </section>
+
+            <section id="recentlyPlayedSection" class="home-recent glass hidden">
+              <div class="section-header section-header-tight">
+                <div>
+                  <p class="eyebrow">Home</p>
+                  <h2>Recently Played</h2>
+                </div>
+              </div>
+              <div id="recentlyPlayedList" class="recently-played-grid"></div>
+            </section>
+
+            <div class="library-heading">
+              <div>
+                <p class="eyebrow">Library</p>
+                <h2>Browse Releases</h2>
+              </div>
+              <div class="library-heading-meta">
+                <span><strong id="topReleaseCount">0</strong> albums</span>
+                <span><strong id="topTrackCount">0</strong> tracks</span>
+              </div>
+            </div>
+
+            <section id="searchResultsSection" class="search-results hidden" aria-label="Track results">
+              <div class="search-results-header">
+                <h3>Top Tracks</h3>
+              </div>
+              <div id="searchTrackList" class="search-track-list"></div>
+            </section>
+
+            <div id="albumList" class="release-grid"></div>
+            <div id="libraryPagination" class="library-pagination hidden" aria-label="Library pages"></div>
+            <div id="libraryEmpty" class="empty-state hidden">No releases match this search.</div>
+          </section>
+
+          <section id="detailPanel" class="release-page hidden" aria-hidden="true">
+            <div class="release-page-head">
+              <button id="closeDetailBtn" class="icon-button detail-back" type="button" aria-label="Back to library">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+              </button>
+            </div>
+
+            <div class="release-banner glass">
+              <div class="release-banner-art">
+                <img id="detailBannerImage" class="release-banner-image hidden" alt="Release art" />
+                <div id="detailBannerFallback" class="release-banner-fallback">PS</div>
+              </div>
+              <div class="release-banner-gradient"></div>
+              <div class="release-banner-copy-block">
+                <span id="detailType" class="detail-badge">Release</span>
+                <h2 id="albumTitle">Select a release</h2>
+                <p id="albumMeta" class="muted">Open a release from the grid to see its tracks.</p>
+                <p id="detailStats" class="muted small-copy">Click a track to start playback.</p>
+                <div class="release-controls">
+                  <div class="release-quick-row">
+                    <button id="releasePlayBtn" class="play-button release-play-button" type="button" aria-label="Play release">
+                      <span class="play-glyph"></span>
+                    </button>
+                    <button id="releaseShuffleBtn" class="icon-button" type="button" aria-label="Shuffle release">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h4m0 0v4m0-4-6 6m-3 2-4 4m-2 0h4m-4 0v-4m0 4 6-6m3-2 4-4"/></svg>
+                    </button>
+                    <button id="releaseRepeatBtn" class="icon-button" type="button" aria-label="Repeat release">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10.5L15 4.5M17 17H6.5L9 19.5M19 9.5V8a3 3 0 0 0-3-3M5 14.5V16a3 3 0 0 0 3 3"/></svg>
+                    </button>
+                    <button id="saveReleaseBtn" class="action-button action-button-secondary" type="button">Add To Playlist</button>
+                    <button id="downloadAlbumBtn" class="action-button action-button-secondary" type="button" disabled>Download Release</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="track-shell glass">
+              <div class="section-header section-header-tight">
+                <div>
+                  <p class="eyebrow">Tracks</p>
+                  <h2>Release Playlist</h2>
+                </div>
+              </div>
+              <div class="track-table-head" aria-hidden="true">
+                <span>#</span>
+                <span>Title</span>
+                <span>Format</span>
+                <span>Duration</span>
+                <span></span>
+              </div>
+              <div id="trackList" class="track-list"></div>
+            </div>
+          </section>
+        </section>
+
+                <section id="profilePanel" class="view view-profile hidden">
+          <section class="profile-hero glass">
+            <div class="profile-avatar-shell">
+              <img id="profileAvatarImage" class="profile-avatar-image hidden" alt="Profile picture" />
+              <div id="profileAvatar" class="profile-avatar">PS</div>
+            </div>
+            <div class="profile-hero-copy">
+              <p id="profileEyebrow" class="eyebrow">Account</p>
+              <h2 id="profileTitle">Continue to unlock your profile</h2>
+              <p id="profileSubtitle" class="muted">Sign in with Google or GitHub to save recent plays, build playlists, and share what you curate.</p>
+            </div>
+            <div class="profile-hero-actions">
+              <button id="profileAuthBtn" class="action-button" type="button">Continue</button>
+              <button id="profileSignOutBtn" class="action-button action-button-secondary hidden" type="button">Sign Out</button>
+              <button id="profileShareBtn" class="action-button action-button-secondary hidden" type="button">Share Profile</button>
+              <button id="deleteAccountBtn" class="action-button action-button-secondary hidden" type="button">Delete Account</button>
+            </div>
+          </section>
+
+          <section id="playlistPage" class="playlist-page hidden" aria-hidden="true">
+            <div class="release-page-head">
+              <button id="playlistBackBtn" class="icon-button detail-back" type="button" aria-label="Back to playlists">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+              </button>
+            </div>
+
+            <div class="release-banner glass playlist-banner">
+              <div class="release-banner-art">
+                <img id="playlistCoverImage" class="release-banner-image hidden" alt="Playlist cover art" />
+                <div id="playlistCoverFallback" class="release-banner-fallback">PL</div>
+              </div>
+              <div class="release-banner-gradient"></div>
+              <div class="release-banner-copy-block">
+                <span id="playlistDetailBadge" class="detail-badge">Playlist</span>
+                <h2 id="playlistDetailTitle">Untitled Playlist</h2>
+                <p id="playlistDetailMeta" class="muted">0 tracks</p>
+                <p class="muted small-copy">By <button id="playlistOwnerLink" class="text-link-button" type="button">@listener</button></p>
+                <p id="playlistDetailDescription" class="muted">A playlist built on Puresound.</p>
+                <div class="release-controls playlist-release-controls">
+                  <div class="release-quick-row">
+                    <button id="playlistPlayBtn" class="play-button release-play-button" type="button" aria-label="Play playlist">
+                      <span class="play-glyph"></span>
+                    </button>
+                    <button id="playlistShuffleBtn" class="icon-button" type="button" aria-label="Shuffle playlist">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h4m0 0v4m0-4-6 6m-3 2-4 4m-2 0h4m-4 0v-4m0 4 6-6m3-2 4-4"/></svg>
+                    </button>
+                    <label class="toggle-row compact playlist-public-row" for="playlistPublicToggle">
+                      <span>Public</span>
+                      <input id="playlistPublicToggle" type="checkbox" />
+                    </label>
+                    <button id="playlistShareBtn" class="action-button action-button-secondary" type="button">Copy Share Link</button>
+                    <button id="playlistDeleteBtn" class="action-button action-button-secondary" type="button">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <section id="playlistEditorCard" class="track-shell playlist-editor-card hidden">
+              <div class="section-header section-header-tight">
+                <div>
+                  <p class="eyebrow">Edit</p>
+                  <h2>Playlist Details</h2>
+                </div>
+              </div>
+              <form id="playlistForm" class="profile-form playlist-form">
+                <label class="field">
+                  <span>Playlist Title</span>
+                  <input id="playlistNameInput" type="text" maxlength="96" placeholder="Late Night Rotation" />
+                </label>
+                <label class="upload-field glass glass-subtle" for="playlistCoverInput">
+                  <span>Upload playlist cover</span>
+                  <input id="playlistCoverInput" type="file" accept="image/*" />
+                </label>
+                <label class="field field-wide">
+                  <span>Playlist Bio</span>
+                  <textarea id="playlistDescriptionInput" class="notes profile-bio" placeholder="Write something about this playlist."></textarea>
+                </label>
+                <button id="playlistSaveBtn" class="action-button" type="submit">Save Playlist</button>
+              </form>
+            </section>
+
+            <div class="track-shell">
+              <div class="section-header section-header-tight">
+                <div>
+                  <p class="eyebrow">Tracks</p>
+                  <h2>Playlist Tracks</h2>
+                </div>
+              </div>
+              <div class="track-table-head playlist-track-table-head" aria-hidden="true">
+                <span>#</span>
+                <span>Title</span>
+                <span>Playlist By</span>
+                <span>Album</span>
+                <span></span>
+              </div>
+              <div id="playlistTrackList" class="playlist-track-list playlist-track-table"></div>
+            </div>
+          </section>
+
+          <div id="profileGridView" class="profile-grid">
+            <section id="profileEditorCard" class="profile-card glass">
+              <div class="section-header section-header-tight">
+                <div>
+                  <p class="eyebrow">Profile</p>
+                  <h2>Edit Profile</h2>
+                </div>
+              </div>
+              <div id="profileEditorEmpty" class="empty-state">Sign in with Google or GitHub to edit your profile and manage playlists.</div>
+              <form id="profileForm" class="profile-form hidden">
+                <label class="field">
+                  <span>Username</span>
+                  <input id="profileUsernameInput" type="text" maxlength="32" placeholder="yourname" />
+                </label>
+                <label class="upload-field glass glass-subtle" for="profileAvatarInput">
+                  <span>Upload profile picture</span>
+                  <input id="profileAvatarInput" type="file" accept="image/*" />
+                </label>
+                <label class="field field-wide">
+                  <span>Bio</span>
+                  <textarea id="profileBioInput" class="notes profile-bio" placeholder="Tell listeners what you are into."></textarea>
+                </label>
+                <button id="profileSaveBtn" class="action-button" type="submit">Save Profile</button>
+              </form>
+            </section>
+
+            <section class="profile-card profile-card-wide glass">
+              <div class="section-header section-header-tight">
+                <div>
+                  <p class="eyebrow">Playlists</p>
+                  <h2>Your Playlists</h2>
+                </div>
+                <button id="createPlaylistBtn" class="action-button action-button-secondary" type="button" disabled>New Playlist</button>
+              </div>
+              <div id="playlistList" class="playlist-library-grid release-grid"></div>
+              <div id="playlistEmpty" class="empty-state">No playlists yet.</div>
+            </section>
+          </div>
+        </section>
+<section id="settingsPanel" class="view view-settings hidden">
+          <div class="settings-header">
+            <div>
+              <p class="eyebrow">Settings</p>
+              <h2>Playback And Library</h2>
+            </div>
+            <div class="settings-tabs glass glass-subtle" role="tablist" aria-label="Settings sections">
+              <button id="settingsGeneralTab" class="settings-tab-button active" type="button" role="tab" aria-selected="true" aria-controls="settingsGeneralPanel">General</button>
+              <button id="settingsAdvancedTab" class="settings-tab-button" type="button" role="tab" aria-selected="false" aria-controls="settingsAdvancedPanel">Advanced</button>
+            </div>
+          </div>
+
+          <div id="settingsGeneralPanel" class="settings-tab-panel settings-grid" role="tabpanel">
+            <section class="settings-card glass">
+              <p class="eyebrow">Cache</p>
+              <h2>Library Cache</h2>
+              <label class="toggle-row" for="cacheToggle">
+                <span>Enable caching</span>
+                <input id="cacheToggle" type="checkbox" />
+              </label>
+              <div class="info-row"><span class="muted">Cached items</span><span id="cacheCount">0 items</span></div>
+              <button id="clearCacheBtn" class="action-button action-button-secondary" type="button">Clear Cache</button>
+            </section>
+
+            <section class="settings-card glass">
+              <p class="eyebrow">Local Files</p>
+              <h2>Upload Music</h2>
+              <label class="upload-field glass glass-subtle" for="localUpload">
+                <span>Choose a folder or files</span>
+                <input id="localUpload" type="file" accept=".mp3,.aac,.flac,.wav,.m4a,.ogg,.opus,audio/*" webkitdirectory multiple />
+              </label>
+              <div class="info-row"><span class="muted">Loaded locally</span><span id="localCount">0 tracks</span></div>
+            </section>
+
+            <section class="settings-card glass">
+              <p class="eyebrow">Scale</p>
+              <h2>UI Scale</h2>
+              <div id="uiScaleSwitch" class="scale-switch glass glass-subtle">
+                <button class="scale-option" data-scale="compact" type="button">Compact</button>
+                <button class="scale-option active" data-scale="normal" type="button">Normal</button>
+                <button class="scale-option" data-scale="large" type="button">Large</button>
+              </div>
+              <div class="info-row"><span class="muted">Current scale</span><span id="uiScaleValue">Normal</span></div>
+            </section>
+
+            <section class="settings-card glass">
+              <p class="eyebrow">Build</p>
+              <h2>Version</h2>
+              <div id="versionCounter" class="version-pill glass glass-subtle">6.0.0</div>
+            </section>
+
+            <section class="settings-card settings-card-wide glass">
+              <p class="eyebrow">Paste Pad</p>
+              <h2>Saved Notes</h2>
+              <textarea id="settingsNotes" class="notes" placeholder="Paste text here. It stays on this device."></textarea>
+            </section>
+
+            <section class="settings-card settings-card-wide glass">
+              <p class="eyebrow">Copyright</p>
+              <h2>Usage</h2>
+              <p class="muted small-copy">Puresound UI and client code &copy; 2026. You are responsible for the music and artwork you stream through your own Drive library.</p>
+            </section>
+          </div>
+
+          <div id="settingsAdvancedPanel" class="settings-tab-panel settings-grid hidden" role="tabpanel" aria-hidden="true">
+            <section class="settings-card settings-card-wide glass">
+              <p class="eyebrow">Advanced</p>
+              <h2>Diagnostics</h2>
+              <div id="status" class="status-bar glass glass-subtle">Waiting for activity...</div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="player-dock glass">
+      <div class="now-playing glass glass-subtle">
+        <div id="art" class="art-frame">
+          <img id="artImage" class="hidden" alt="Current cover art" />
+          <span id="artInitials">PS</span>
+        </div>
+        <div class="now-copy">
+          <p class="eyebrow">Now Playing</p>
+          <h3 id="nowTitle">Nothing queued</h3>
+          <p id="nowSub" class="muted small-copy">Choose a track to begin</p>
+        </div>
+      </div>
+
+      <div class="transport-shell">
+        <div class="transport-buttons">
+          <button id="shuffleBtn" class="icon-button" type="button" aria-label="Shuffle">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h4m0 0v4m0-4-6 6m-3 2-4 4m-2 0h4m-4 0v-4m0 4 6-6m3-2 4-4"/></svg>
+          </button>
+          <button id="prevBtn" class="icon-button" type="button" aria-label="Previous">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7v10M18 7l-8 5 8 5V7Z"/></svg>
+          </button>
+          <button id="playBtn" class="play-button" type="button" aria-label="Play or pause">
+            <span class="play-glyph"></span>
+          </button>
+          <button id="nextBtn" class="icon-button" type="button" aria-label="Next">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 7v10M6 7l8 5-8 5V7Z"/></svg>
+          </button>
+          <button id="repeatBtn" class="icon-button" type="button" aria-label="Repeat">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10.5L15 4.5M17 17H6.5L9 19.5M19 9.5V8a3 3 0 0 0-3-3M5 14.5V16a3 3 0 0 0 3 3"/></svg>
+            <span id="repeatOneBadge" class="repeat-one" hidden>1</span>
+          </button>
+          <button id="saveTrackBtn" class="icon-button" type="button" aria-label="Add current track to a playlist">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <button id="downloadBtn" class="icon-button" type="button" aria-label="Download current track">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 18h14"/></svg>
+          </button>
+        </div>
+
+        <div class="progress-shell">
+          <span id="currentTime">0:00</span>
+          <input id="seekBar" type="range" min="0" max="100" value="0" />
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+
+      <div class="tools-shell glass glass-subtle">
+        <div class="volume-shell">
+          <svg id="volumeIcon" class="volume-icon" viewBox="0 0 24 24" data-level="medium" aria-hidden="true">
+            <path class="speaker" d="M4 9v6h4.5l5.5 4V5L8.5 9H4z"></path>
+            <path class="wave-low" d="M16 9.4a3.7 3.7 0 0 1 0 5.2"></path>
+            <path class="wave-high" d="M18.8 6.8a7.6 7.6 0 0 1 0 10.4"></path>
+            <path class="mute-mark" d="M16.4 8.6l4 4m0-4-4 4"></path>
+          </svg>
+          <input id="volumeSlider" type="range" min="0" max="200" value="100" />
+        </div>
+      </div>
+    </footer>
+
+    <footer class="site-footer">
+      <div class="footer-copyright">Copyright 2026 Puresound</div>
+    </footer>
+
+    <div id="authModal" class="dialog-backdrop hidden" aria-hidden="true">
+      <div class="dialog-card glass auth-card">
+        <button id="authCloseBtn" class="detail-back dialog-close" type="button" aria-label="Close account dialog">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18"/></svg>
+        </button>
+        <p class="eyebrow">Account</p>
+        <h2 id="authDialogTitle">Continue</h2>
+        <p id="authDialogCopy" class="muted">Use Google or GitHub to sign in.</p>
+
+        <div class="auth-provider-stack">
+          <button id="authGoogleBtn" class="action-button action-button-secondary" type="button">Continue with Google</button>
+          <button id="authGithubBtn" class="action-button action-button-secondary" type="button">Continue with GitHub</button>
+        </div>
+
+        <div id="authStatus" class="status-bar glass glass-subtle">Connect Supabase in config.js to enable accounts.</div>
+      </div>
+    </div>
+
+    <div id="playlistPickerModal" class="dialog-backdrop hidden" aria-hidden="true">
+      <div class="dialog-card glass picker-card">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">Playlist</p>
+            <h2 id="playlistPickerTitle">Save To Playlist</h2>
+          </div>
+          <button id="playlistPickerCloseBtn" class="detail-back dialog-close" type="button" aria-label="Close playlist picker">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <p id="playlistPickerCopy" class="muted">Choose a playlist or create a new one.</p>
+        <div id="playlistPickerList" class="picker-list"></div>
+        <button id="playlistPickerCreateBtn" class="action-button action-button-secondary" type="button">Create New Playlist</button>
+      </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay hidden" aria-hidden="true">
+      <div class="loading-card glass">
+        <div class="loading-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <p id="loadingText">Loading library...</p>
+      </div>
+    </div>
+
+    <div id="setup" class="setup hidden">
+      <div class="setup-card glass">
+        <p class="eyebrow">Public Drive Proxy</p>
+        <h2>Library source is not configured</h2>
+        <p class="muted small-copy">This build expects a same-origin library.json manifest. Regenerate it after Drive changes if the library needs to refresh.</p>
+      </div>
+    </div>
+
+    <audio id="audio" preload="auto"></audio>
+    <script>window.PURESOUND_CONFIG = window.PURESOUND_CONFIG || {};</script>
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="app.js"></script>
+    <script src="accounts.js"></script>
+  </body>
+</html>
+
+
+
+
+
