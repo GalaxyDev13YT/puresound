@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg-0: #05080f;
   --bg-1: #0d1827;
   --bg-2: #13263a;
@@ -3052,5 +3052,113 @@ body {
 
   #profileTitle {
     font-size: 2.6rem;
+  }
+}
+
+/* 2026-04-22 header + recent card fit fixes */
+.topbar {
+  min-width: 0;
+}
+
+.search-shell {
+  min-width: 0;
+}
+
+.topbar-account {
+  min-width: 0;
+  flex: 0 1 auto;
+  max-width: min(30vw, 320px);
+  margin-left: auto;
+}
+
+.welcome-banner {
+  min-width: 0;
+  max-width: clamp(84px, 12vw, 168px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-chip {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.sidebar-brand {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.brand-logo {
+  flex: 0 0 auto;
+}
+
+.sidebar-brand h1 {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(1.18rem, 1.18vw, 1.38rem);
+}
+
+.recent-card {
+  min-width: 0;
+  grid-template-rows: auto auto;
+  align-content: start;
+}
+
+.recent-card-main,
+.recent-card-copy,
+.recent-card-footer {
+  min-width: 0;
+}
+
+.recent-card-copy h3,
+.recent-card-copy p,
+.recent-card-footer,
+.recent-card-footer .text-link-button {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-card-copy h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  line-height: 1.12;
+}
+
+.recent-card-copy p,
+.recent-card-footer,
+.recent-card-footer .text-link-button {
+  display: block;
+  white-space: nowrap;
+}
+
+.recent-card-footer .text-link-button {
+  width: 100%;
+  text-align: left;
+}
+
+@media (max-width: 1280px) {
+  .topbar-account {
+    max-width: 220px;
+  }
+
+  .welcome-banner {
+    max-width: 110px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .welcome-banner {
+    display: none;
+  }
+
+  .topbar-account {
+    max-width: none;
   }
 }
